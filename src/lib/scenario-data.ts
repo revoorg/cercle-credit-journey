@@ -136,7 +136,7 @@ Une autre question ?`,
 };
 
 export const WALLET_DATA = {
-  userName: "Sébastien",
+  userName: "Guillaume",
   lastUpdate: "18/02/2026",
 
   categories: [

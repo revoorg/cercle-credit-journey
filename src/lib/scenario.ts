@@ -9,7 +9,7 @@ export const STEP_DEFINITIONS: StepDefinition[] = [
   { id: "chat-choice-detail", page: "chat" },
   { id: "chat-payment-options", page: "chat" },
   { id: "chat-payment-detail", page: "chat" },
-  { id: "chat-taeg-question", page: "chat", autoAdvance: { delayMs: 2000, nextStep: "chat-taeg-sent" } },
+  { id: "chat-taeg-question", page: "chat" },
   { id: "chat-taeg-sent", page: "chat", autoAdvance: { delayMs: 500, nextStep: "chat-taeg-loading" } },
   { id: "chat-taeg-loading", page: "chat", autoAdvance: { delayMs: 2500, nextStep: "chat-taeg-response" } },
   { id: "chat-taeg-response", page: "chat" },

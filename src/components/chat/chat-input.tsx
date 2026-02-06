@@ -88,6 +88,7 @@ export function ChatInput() {
           </p>
           <MicIcon />
           <button
+            onClick={() => goTo("chat-taeg-sent")}
             className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-cercle-blue text-white"
             aria-label="Envoyer"
           >
