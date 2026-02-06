@@ -162,10 +162,11 @@ export function ChatPage() {
             <p className="animate-message-in text-lg font-medium text-[#242A2F]">
               {CHAT_DATA.aiResponseIntro}
             </p>
-            <div className="-mx-4 flex gap-4 overflow-x-auto px-4 pb-2">
+            <div className="-mx-4 flex gap-4 overflow-x-auto pl-4 pb-2">
               {CHAT_DATA.hotels.map((hotel) => (
                 <HotelCard key={hotel.id} hotel={hotel} />
               ))}
+              <div className="w-px shrink-0" aria-hidden="true" />
             </div>
           </>
         )}

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useScenario } from "@/hooks/use-scenario";
 import type { Hotel } from "@/types/scenario";
 
@@ -16,15 +15,14 @@ export function HotelCard({ hotel }: HotelCardProps) {
       onClick={() => goTo("chat-choice-detail")}
       className="flex w-[216px] shrink-0 cursor-pointer flex-col overflow-hidden rounded-[15px] border border-[#DEE3E6] bg-white text-left transition-shadow hover:shadow-md"
     >
-      <div className="relative h-[135px] w-full overflow-hidden">
-        <Image
-          src={hotel.image}
-          alt={hotel.name}
-          fill
-          className="object-cover"
-          sizes="216px"
-        />
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={hotel.image}
+        alt={hotel.name}
+        width={216}
+        height={135}
+        className="h-[135px] w-[216px] object-cover"
+      />
       <div className="flex flex-1 flex-col px-3 pb-3 pt-2">
         <p className="text-lg font-medium leading-[27px] text-[#242A2F]">
           {hotel.name}
