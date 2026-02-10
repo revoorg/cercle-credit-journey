@@ -126,7 +126,7 @@ export function PaymentDetail() {
               <br />
               Coût total de la mensualité du crédit avec assurance :{" "}
               <strong className="text-[#242A2F]">
-                {credit.insurance.monthlyWithInsurance}€
+                {credit.insurance.monthlyWithInsurance}
               </strong>
             </p>
           </div>
