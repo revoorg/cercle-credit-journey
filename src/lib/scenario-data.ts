@@ -172,7 +172,7 @@ export const WALLET_DATA = {
 
   consentRequest: {
     requester: "MonCrédit.com",
-    attributeCount: 15,
+    attributeCount: 16,
   } satisfies ConsentRequest,
 
   attributes: [
@@ -191,5 +191,6 @@ export const WALLET_DATA = {
     { name: "Reste-à-vivre", category: "financial", certified: true },
     { name: "Indicateurs de risque", category: "financial", certified: true },
     { name: "Score de crédit", category: "financial", certified: true },
+    { name: "Capacité d'emprunt", category: "financial", certified: true },
   ] satisfies WalletAttribute[],
 };

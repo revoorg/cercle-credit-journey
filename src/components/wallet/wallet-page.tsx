@@ -10,30 +10,32 @@ import { WalletSharedConfirmation } from "@/components/wallet/wallet-shared-conf
 export function WalletPage() {
   const { step } = useScenario();
 
+  if (step === "wallet-shared-confirmation") {
+    return (
+      <div className="animate-page-slide-up flex h-dvh flex-col bg-cercle-soft-blue">
+        <WalletHeader />
+        <WalletSharedConfirmation />
+      </div>
+    );
+  }
+
   return (
-    <div className="animate-page-slide-up flex h-dvh flex-col bg-cercle-soft-blue">
+    <div className="animate-page-slide-up h-dvh overflow-y-auto bg-cercle-soft-blue">
       <WalletHeader />
 
-      {/* Main content based on step */}
-      {step === "wallet-attribute-detail" ? (
-        <div className="flex-1 overflow-y-auto">
-          <WalletAttributeList />
-        </div>
-      ) : step === "wallet-shared-confirmation" ? (
-        <WalletSharedConfirmation />
-      ) : (
-        <div className="relative flex-1">
-          {/* Consent card overlapping the header */}
-          {step === "wallet-consent" && (
-            <div className="absolute top-0 right-0 left-0 z-10 -translate-y-4 px-4">
-              <WalletConsentCard />
-            </div>
-          )}
-          <div className="h-full overflow-y-auto" style={{ paddingTop: step === "wallet-consent" ? "10rem" : undefined }}>
-            <WalletHome />
-          </div>
+      {/* Overlapping card pulls up into the header */}
+      {step === "wallet-consent" && (
+        <div className="relative z-10 -mt-4 px-4">
+          <WalletConsentCard />
         </div>
       )}
+      {step === "wallet-attribute-detail" && (
+        <div className="relative z-10 -mt-4 px-4">
+          <WalletAttributeList />
+        </div>
+      )}
+
+      <WalletHome />
     </div>
   );
 }
