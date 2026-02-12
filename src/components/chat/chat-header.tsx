@@ -34,13 +34,12 @@ export function ChatHeader({ compact = false }: ChatHeaderProps) {
         </div>
         {/* User avatar with lock badge */}
         <div className="relative">
-          <div className="h-10 w-10 overflow-hidden rounded-full">
+          <div className="relative h-10 w-10 overflow-hidden rounded-full border border-[#D9D9D9]">
             <Image
               src="/images/avatars/user-avatar.png"
               alt="Utilisateur"
-              width={40}
-              height={40}
-              className="object-cover"
+              fill
+              className="object-cover scale-[1.35]"
             />
           </div>
           <span className="absolute -bottom-0.5 -left-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-cercle-blue">
@@ -79,13 +78,12 @@ export function ChatHeader({ compact = false }: ChatHeaderProps) {
       {/* User avatar in top-right */}
       <div className="absolute right-4 top-[max(24px,env(safe-area-inset-top))] z-10">
         <div className="relative">
-          <div className="h-10 w-10 overflow-hidden rounded-full">
+          <div className="relative h-10 w-10 overflow-hidden rounded-full border border-[#D9D9D9]">
             <Image
               src="/images/avatars/user-avatar.png"
               alt="Utilisateur"
-              width={40}
-              height={40}
-              className="object-cover"
+              fill
+              className="object-cover scale-[1.35]"
             />
           </div>
           <span className="absolute -bottom-0.5 -left-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-cercle-blue">
