@@ -63,11 +63,19 @@ export function WalletPrompt() {
           </ul>
 
           {/* eIDAS badge */}
-          <div className="flex items-center gap-2 text-xs text-[#60707C]">
-            <span>connexion certifiée</span>
-            <span className="rounded bg-[#E8F4F2] px-1.5 py-0.5 text-xs font-medium text-[#2D8C7F]">
-              eIDAS
+          <div className="flex items-center gap-2">
+            <span className="text-base italic text-[#7C8D9A]">
+              connexion certifiée
             </span>
+            <div className="flex h-6 items-center overflow-hidden rounded-[17px] border border-[#9DAAB3]">
+              <div className="flex h-full w-8 items-center justify-center bg-[#9DAAB3]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/eu-stars.svg" alt="" width={14} height={14} />
+              </div>
+              <span className="px-2 text-sm font-medium italic text-[#7C8D9A]">
+                eIDAS
+              </span>
+            </div>
           </div>
 
           {/* CTA inside card */}
