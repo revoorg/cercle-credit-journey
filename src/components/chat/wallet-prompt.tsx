@@ -69,24 +69,25 @@ export function WalletPrompt() {
               eIDAS
             </span>
           </div>
+
+          {/* CTA inside card */}
+          {isConnected ? (
+            <div className="flex h-[57px] w-full items-center justify-center gap-2 rounded-[35px] border border-[#DEE3E6] bg-[#F6F8F9]">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="9" fill="#22C55E" />
+                <path d="M5.5 9.5L7.5 11.5L12.5 6.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-lg font-medium text-[#60707C]">
+                Wallet connecté
+              </span>
+            </div>
+          ) : (
+            <CtaButton onClick={() => goTo("wallet-home")}>
+              Connecter mon wallet
+            </CtaButton>
+          )}
         </div>
       </div>
-
-      {isConnected ? (
-        <div className="flex h-[57px] w-full items-center justify-center gap-2 rounded-[35px] border border-[#DEE3E6] bg-[#F6F8F9]">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <circle cx="9" cy="9" r="9" fill="#22C55E" />
-            <path d="M5.5 9.5L7.5 11.5L12.5 6.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <span className="text-lg font-medium text-[#60707C]">
-            Wallet connecté
-          </span>
-        </div>
-      ) : (
-        <CtaButton onClick={() => goTo("wallet-home")}>
-          Connecter mon wallet
-        </CtaButton>
-      )}
     </div>
   );
 }

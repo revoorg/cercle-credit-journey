@@ -131,17 +131,19 @@ export function PaymentDetail() {
             </p>
           </div>
         </div>
+
+        {/* Legal notice */}
+        <p className="px-5 pb-4 text-sm italic leading-relaxed text-[#47535C]">
+          {credit.legalNotice}
+        </p>
+
+        {/* CTA */}
+        <div className="px-5 pb-5">
+          <button className="h-[57px] w-full cursor-pointer rounded-[35px] bg-[#005A9E] text-lg font-medium text-white transition-colors hover:bg-[#004A84]">
+            Choisir ce mode de paiement
+          </button>
+        </div>
       </div>
-
-      {/* Legal notice */}
-      <p className="text-sm italic leading-relaxed text-[#47535C]">
-        {credit.legalNotice}
-      </p>
-
-      {/* CTA */}
-      <button className="h-[57px] w-full cursor-pointer rounded-[35px] bg-[#005A9E] text-lg font-medium text-white transition-colors hover:bg-[#004A84]">
-        Choisir ce mode de paiement
-      </button>
     </div>
   );
 }
