@@ -1,7 +1,8 @@
 "use client";
 
-import { Plus } from "lucide-react";
+import { ChevronLeft, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useScenario } from "@/hooks/use-scenario";
 import { WALLET_DATA } from "@/lib/scenario-data";
 
 interface WalletHeaderProps {
@@ -9,16 +10,27 @@ interface WalletHeaderProps {
 }
 
 export function WalletHeader({ className }: WalletHeaderProps) {
+  const { back } = useScenario();
+
   return (
     <div
       className={cn(
-        "relative flex-shrink-0 rounded-b-2xl px-6 pt-12 pb-6",
+        "relative flex-shrink-0 px-6 pt-10 pb-10",
         className
       )}
       style={{
         background: "linear-gradient(135deg, #2D8C7F 0%, #1E6B6B 100%)",
       }}
     >
+      {/* Back link */}
+      <button
+        onClick={back}
+        className="mb-3 flex items-center gap-1 text-xs text-white/90"
+      >
+        <ChevronLeft className="h-3 w-3" />
+        <span>Mon agent IA</span>
+      </button>
+
       {/* Top row: + icon, title, user initials */}
       <div className="flex items-center justify-between">
         <button
@@ -28,23 +40,23 @@ export function WalletHeader({ className }: WalletHeaderProps) {
           <Plus className="h-5 w-5 text-white" />
         </button>
 
-        <h1 className="text-lg font-bold text-white">Wallet</h1>
+        <h1 className="text-lg font-bold text-white italic">Wallet</h1>
 
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-sm font-semibold text-white">
-          SB
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4A3B6B] text-sm font-semibold text-white">
+          GD
         </div>
       </div>
 
-      {/* Greeting */}
-      <div className="mt-6">
-        <h2 className="text-2xl font-bold text-white">
-          Bonjour {WALLET_DATA.userName}
-        </h2>
-      </div>
+      {/* Greeting — centered */}
+      <h2 className="mt-6 text-center text-2xl font-bold text-white">
+        Bonjour {WALLET_DATA.userName}
+      </h2>
 
-      {/* Last update */}
-      <p className="mt-2 text-sm text-white/70">
-        Derni&egrave;re mise &agrave; jour : {WALLET_DATA.lastUpdate}
+      {/* Last update — centered, two lines */}
+      <p className="mt-2 text-center text-sm text-white/70">
+        Derni&egrave;re mise &agrave; jour
+        <br />
+        {WALLET_DATA.lastUpdate}
       </p>
     </div>
   );

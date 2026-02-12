@@ -158,7 +158,7 @@ export const WALLET_DATA = {
       id: "financial",
       title: "Mes informations financières",
       color: "purple" as const,
-      lastUpdate: "29/01/2026",
+      lastUpdate: "15/02/2026",
       attributeCount: 9,
     },
     {
@@ -166,7 +166,7 @@ export const WALLET_DATA = {
       title: "Ma santé",
       color: "pink" as const,
       lastUpdate: "13/02/2026",
-      attributeCount: 0,
+      attributeCount: 4,
     },
   ] satisfies WalletCategory[],
 

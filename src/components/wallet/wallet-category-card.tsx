@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, LayoutGrid } from "lucide-react";
+import { ChevronRight, User, Home, Sparkles, Heart, List } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { WalletCategory } from "@/types/scenario";
 
@@ -9,6 +9,13 @@ const COLOR_MAP: Record<WalletCategory["color"], string> = {
   "green-teal": "bg-cercle-green-teal",
   purple: "bg-cercle-purple",
   pink: "bg-cercle-pink",
+};
+
+const ICON_MAP: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  identity: User,
+  housing: Home,
+  financial: Sparkles,
+  health: Heart,
 };
 
 interface WalletCategoryCardProps {
@@ -21,6 +28,7 @@ export function WalletCategoryCard({
   className,
 }: WalletCategoryCardProps) {
   const bannerColor = COLOR_MAP[category.color];
+  const Icon = ICON_MAP[category.id];
 
   return (
     <div
@@ -36,10 +44,15 @@ export function WalletCategoryCard({
           bannerColor
         )}
       >
-        <span className="text-sm font-semibold text-white">
-          {category.title}
-        </span>
-        <ChevronRight className="h-4 w-4 text-white/80" />
+        <div className="flex items-center gap-2">
+          {Icon && <Icon className="h-4 w-4 text-white" />}
+          <span className="text-sm font-semibold text-white">
+            {category.title}
+          </span>
+        </div>
+        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/25">
+          <ChevronRight className="h-3 w-3 text-white" />
+        </div>
       </div>
 
       {/* Card body */}
@@ -48,7 +61,7 @@ export function WalletCategoryCard({
           Derni&egrave;re mise &agrave; jour : {category.lastUpdate}
         </p>
         <div className="mt-2 flex items-center gap-2 text-xs text-cercle-grey-text">
-          <LayoutGrid className="h-3.5 w-3.5" />
+          <List className="h-3.5 w-3.5" />
           <span>{category.attributeCount} attributs disponibles</span>
         </div>
       </div>
