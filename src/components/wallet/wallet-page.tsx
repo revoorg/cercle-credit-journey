@@ -10,28 +10,20 @@ import { WalletSharedConfirmation } from "@/components/wallet/wallet-shared-conf
 export function WalletPage() {
   const { step } = useScenario();
 
-  if (step === "wallet-shared-confirmation") {
-    return (
-      <div className="animate-page-slide-up flex h-dvh flex-col bg-cercle-soft-blue">
-        <WalletHeader />
-        <WalletSharedConfirmation />
-      </div>
-    );
-  }
+  const showCard =
+    step === "wallet-consent" ||
+    step === "wallet-attribute-detail" ||
+    step === "wallet-shared-confirmation";
 
   return (
     <div className="animate-page-slide-up h-dvh overflow-y-auto bg-cercle-soft-blue">
       <WalletHeader />
 
-      {/* Overlapping card pulls up into the header */}
-      {step === "wallet-consent" && (
+      {showCard && (
         <div className="relative z-10 -mt-4 px-4">
-          <WalletConsentCard />
-        </div>
-      )}
-      {step === "wallet-attribute-detail" && (
-        <div className="relative z-10 -mt-4 px-4">
-          <WalletAttributeList />
+          {step === "wallet-consent" && <WalletConsentCard />}
+          {step === "wallet-attribute-detail" && <WalletAttributeList />}
+          {step === "wallet-shared-confirmation" && <WalletSharedConfirmation />}
         </div>
       )}
 
