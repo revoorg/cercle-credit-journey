@@ -5,13 +5,11 @@ import { useScenario } from "@/hooks/use-scenario";
 import { CHAT_DATA } from "@/lib/scenario-data";
 import type { ScenarioStep } from "@/types/scenario";
 
-/** Recording config per step: duration in ms and which step to go to when done */
-const RECORDING_CONFIG: Partial<
-  Record<ScenarioStep, { duration: number; nextStep: ScenarioStep }>
-> = {
-  "chat-welcome": { duration: 7000, nextStep: "chat-user-message" },
-  "chat-payment-detail": { duration: 2000, nextStep: "chat-taeg-question" },
-  "chat-taeg-response": { duration: 4000, nextStep: "chat-user-confirm" },
+/** Which step to transition to after recording finishes */
+const RECORDING_CONFIG: Partial<Record<ScenarioStep, ScenarioStep>> = {
+  "chat-welcome": "chat-user-message",
+  "chat-payment-detail": "chat-taeg-question",
+  "chat-taeg-response": "chat-user-confirm",
 };
 
 const HIDDEN_STEPS = new Set<ScenarioStep>([
@@ -25,7 +23,6 @@ const HIDDEN_STEPS = new Set<ScenarioStep>([
 export function ChatInput() {
   const { step, goTo } = useScenario();
   const [recordingTarget, setRecordingTarget] = useState<ScenarioStep | null>(null);
-  const [recordingDuration, setRecordingDuration] = useState(0);
   const [elapsed, setElapsed] = useState(0);
 
   const isRecording = recordingTarget !== null;
@@ -39,26 +36,20 @@ export function ChatInput() {
     return () => clearInterval(interval);
   }, [isRecording]);
 
-  // Auto-stop recording after configured duration
-  useEffect(() => {
-    if (!recordingTarget) return;
-    const timeout = setTimeout(() => {
-      const target = recordingTarget;
-      setRecordingTarget(null);
-      setRecordingDuration(0);
-      setElapsed(0);
-      goTo(target);
-    }, recordingDuration);
-    return () => clearTimeout(timeout);
-  }, [recordingTarget, recordingDuration, goTo]);
-
   const startRecording = useCallback(() => {
-    const config = RECORDING_CONFIG[step];
-    if (!config) return;
+    const target = RECORDING_CONFIG[step];
+    if (!target) return;
     setElapsed(0);
-    setRecordingTarget(config.nextStep);
-    setRecordingDuration(config.duration);
+    setRecordingTarget(target);
   }, [step]);
+
+  const stopRecording = useCallback(() => {
+    if (!recordingTarget) return;
+    const target = recordingTarget;
+    setRecordingTarget(null);
+    setElapsed(0);
+    goTo(target);
+  }, [recordingTarget, goTo]);
 
   // Hide input on wallet/contract steps
   if (HIDDEN_STEPS.has(step)) {
@@ -68,12 +59,12 @@ export function ChatInput() {
   const isWelcome = step === "chat-welcome";
   const isUserMessage = step === "chat-user-message";
 
-  // Welcome: mic-only trigger → recording bar → auto-transition
+  // Welcome: hold mic to record → release to populate message
   if (isWelcome) {
     if (isRecording) {
       return (
         <div className="shrink-0 bg-white px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-2">
-          <RecordingBar elapsed={elapsed} />
+          <RecordingBar elapsed={elapsed} onStop={stopRecording} />
         </div>
       );
     }
@@ -84,13 +75,7 @@ export function ChatInput() {
           <p className="flex-1 text-lg text-cercle-grey-text">
             Posez votre question, décrivez votre demande
           </p>
-          <button
-            onClick={startRecording}
-            className="cursor-pointer"
-            aria-label="Enregistrer un message vocal"
-          >
-            <MicIcon />
-          </button>
+          <MicButton onStart={startRecording} />
         </div>
       </div>
     );
@@ -201,12 +186,12 @@ export function ChatInput() {
     );
   }
 
-  // Payment detail: mic-only trigger → recording bar → TAEG question
+  // Payment detail: hold mic to record → release to show TAEG question
   if (step === "chat-payment-detail") {
     if (isRecording) {
       return (
         <div className="shrink-0 bg-white px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-2">
-          <RecordingBar elapsed={elapsed} />
+          <RecordingBar elapsed={elapsed} onStop={stopRecording} />
         </div>
       );
     }
@@ -217,24 +202,18 @@ export function ChatInput() {
           <p className="flex-1 text-lg text-cercle-grey-text">
             Posez votre question, décrivez votre demande
           </p>
-          <button
-            onClick={startRecording}
-            className="cursor-pointer"
-            aria-label="Enregistrer un message vocal"
-          >
-            <MicIcon />
-          </button>
+          <MicButton onStart={startRecording} />
         </div>
       </div>
     );
   }
 
-  // TAEG response: mic-only trigger → recording bar → user confirm
+  // TAEG response: hold mic to record → release to show confirm message
   if (step === "chat-taeg-response") {
     if (isRecording) {
       return (
         <div className="shrink-0 bg-white px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-2">
-          <RecordingBar elapsed={elapsed} />
+          <RecordingBar elapsed={elapsed} onStop={stopRecording} />
         </div>
       );
     }
@@ -245,13 +224,7 @@ export function ChatInput() {
           <p className="flex-1 text-lg text-cercle-grey-text">
             Posez votre question, décrivez votre demande
           </p>
-          <button
-            onClick={startRecording}
-            className="cursor-pointer"
-            aria-label="Enregistrer un message vocal"
-          >
-            <MicIcon />
-          </button>
+          <MicButton onStart={startRecording} />
         </div>
       </div>
     );
@@ -304,8 +277,8 @@ export function ChatInput() {
   );
 }
 
-/** Animated full-width recording bar with waveform and timer */
-function RecordingBar({ elapsed }: { elapsed: number }) {
+/** Animated full-width recording bar with waveform, timer, and hold-to-record mic */
+function RecordingBar({ elapsed, onStop }: { elapsed: number; onStop: () => void }) {
   const seconds = Math.floor(elapsed / 1000);
   const minutes = Math.floor(seconds / 60);
   const displaySeconds = seconds % 60;
@@ -314,11 +287,10 @@ function RecordingBar({ elapsed }: { elapsed: number }) {
   // Generate bars with pseudo-random max heights and speeds for organic look
   const BAR_COUNT = 28;
   const bars = Array.from({ length: BAR_COUNT }, (_, i) => {
-    // Use a simple hash to vary height and speed per bar
     const seed = ((i * 7 + 3) % 11) / 11;
-    const maxH = 6 + seed * 16; // 6px to 22px
-    const speed = 0.5 + seed * 0.6; // 0.5s to 1.1s
-    const delay = (i * 0.06) % 0.8; // stagger
+    const maxH = 6 + seed * 16;
+    const speed = 0.5 + seed * 0.6;
+    const delay = (i * 0.06) % 0.8;
     return { maxH, speed, delay };
   });
 
@@ -347,13 +319,36 @@ function RecordingBar({ elapsed }: { elapsed: number }) {
       <span className="shrink-0 text-sm font-medium tabular-nums text-cercle-blue">
         {timeStr}
       </span>
+
+      {/* Mic button — release to stop */}
+      <button
+        onPointerUp={onStop}
+        onPointerLeave={onStop}
+        className="cursor-pointer"
+        aria-label="Relâcher pour envoyer"
+      >
+        <MicIcon active />
+      </button>
     </div>
   );
 }
 
-function MicIcon() {
+/** Hold-to-record mic trigger button */
+function MicButton({ onStart }: { onStart: () => void }) {
   return (
-    <div className="flex h-8 w-8 shrink-0 items-center justify-center text-cercle-grey-text">
+    <button
+      onPointerDown={onStart}
+      className="cursor-pointer touch-none"
+      aria-label="Maintenir pour enregistrer"
+    >
+      <MicIcon />
+    </button>
+  );
+}
+
+function MicIcon({ active }: { active?: boolean } = {}) {
+  return (
+    <div className={`flex h-8 w-8 shrink-0 items-center justify-center ${active ? "text-cercle-blue" : "text-cercle-grey-text"}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18"
