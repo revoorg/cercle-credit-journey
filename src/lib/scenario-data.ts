@@ -194,3 +194,99 @@ export const WALLET_DATA = {
     { name: "Capacité d'emprunt", category: "financial", certified: true },
   ] satisfies WalletAttribute[],
 };
+
+// --- Flashback data ---
+
+export const FLASHBACK_TITLE_TEXT = "Quelques jours plus tôt...";
+
+export const FLASHBACK_WALLET_DATA = {
+  userName: "Guillaume",
+  lastUpdate: "27/01/2026",
+
+  categories: [
+    {
+      id: "identity",
+      title: "Mon identité",
+      color: "teal" as const,
+      lastUpdate: "11/01/2026",
+      attributeCount: 8,
+    },
+    {
+      id: "housing",
+      title: "Mon logement",
+      color: "green-teal" as const,
+      lastUpdate: "",
+      attributeCount: 0,
+    },
+    {
+      id: "financial",
+      title: "Mes informations financières",
+      color: "purple" as const,
+      lastUpdate: "",
+      attributeCount: 0,
+    },
+    {
+      id: "health",
+      title: "Ma santé",
+      color: "pink" as const,
+      lastUpdate: "",
+      attributeCount: 0,
+    },
+  ] satisfies WalletCategory[],
+};
+
+export const FLASHBACK_FINANCIAL_DATA = {
+  description:
+    "Connectez vos comptes bancaires pour certifier automatiquement vos informations financières dans votre wallet.",
+  connectParagraph:
+    "La connexion bancaire permet de certifier les attributs suivants :",
+  attributes: [
+    "Salaire",
+    "Autres revenus",
+    "Charges mensuelles",
+    "Mensualités de crédit",
+    "Reste-à-vivre",
+    "Indicateurs de risque",
+    "Score de crédit",
+    "Eligibilité au crédit",
+  ],
+  consentText:
+    "J'autorise Wallet à collecter mes données bancaires pendant 180 jours auprès de l'agrégateur et à les transmettre au fournisseur de score pour certifier mes données.",
+  buttonText: "Connecter mes comptes bancaires",
+};
+
+export const FLASHBACK_BANK_CONSENT_DATA = {
+  title: "Partagez\nvos données bancaires",
+  subtitle: "C'est simple, rapide et sécurisé",
+  badges: ["Sécurité", "RGPD", "Confidentialité"] as const,
+  consentText:
+    "J'autorise l'agrégateur à traiter mes données personnelles conformément à la Politique de confidentialité, de manière automatisée à des fins de score, et à les transmettre à Wallet.",
+  cguText: "En continuant, vous acceptez les CGU de l'agrégateur.",
+  buttonText: "Continuer vers le choix de la banque",
+};
+
+export const FLASHBACK_BANK_REDIRECT_DATA = {
+  title: "Connectez votre banque",
+  bankName: "Revolut",
+  bankLogo: "/images/banks/revolut.svg",
+  steps: [
+    {
+      title: "Redirection sécurisée",
+      description:
+        "vers l'application ou le site web de votre banque.",
+    },
+    {
+      title: "Authentification",
+      description:
+        "avec votre mode d'identification habituel.",
+    },
+    {
+      title: "Retour",
+      description:
+        "sur ce parcours pour finaliser la transmission de vos données.",
+    },
+  ],
+  disclaimer:
+    "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à Algoan.",
+  buttonText: "Poursuivre vers ma banque",
+};

@@ -18,6 +18,11 @@ const HIDDEN_STEPS = new Set<ScenarioStep>([
   "wallet-attribute-detail",
   "wallet-shared-confirmation",
   "chat-contract-view",
+  "flashback-title",
+  "flashback-wallet-home",
+  "flashback-financial-detail",
+  "flashback-bank-consent",
+  "flashback-bank-redirect",
 ]);
 
 export function ChatInput() {
@@ -260,6 +265,23 @@ export function ChatInput() {
             </svg>
           </button>
         </div>
+      </div>
+    );
+  }
+
+  // chat-add-wallet-done: clickable input to trigger flashback
+  if (step === "chat-add-wallet-done") {
+    return (
+      <div className="shrink-0 bg-white px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-2">
+        <button
+          onClick={() => goTo("flashback-title")}
+          className="flex w-full items-center gap-3 rounded-[15px] border border-cercle-grey-border bg-cercle-grey-bg px-4 py-4 text-left cursor-pointer"
+        >
+          <p className="flex-1 text-lg text-cercle-grey-text">
+            Posez votre question, décrivez votre demande
+          </p>
+          <MicIcon />
+        </button>
       </div>
     );
   }

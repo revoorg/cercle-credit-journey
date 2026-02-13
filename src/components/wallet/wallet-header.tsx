@@ -7,10 +7,21 @@ import { WALLET_DATA } from "@/lib/scenario-data";
 
 interface WalletHeaderProps {
   className?: string;
+  hideBackButton?: boolean;
+  lastUpdate?: string;
+  userName?: string;
 }
 
-export function WalletHeader({ className }: WalletHeaderProps) {
+export function WalletHeader({
+  className,
+  hideBackButton,
+  lastUpdate,
+  userName,
+}: WalletHeaderProps) {
   const { back } = useScenario();
+
+  const displayName = userName ?? WALLET_DATA.userName;
+  const displayDate = lastUpdate ?? WALLET_DATA.lastUpdate;
 
   return (
     <div
@@ -22,14 +33,18 @@ export function WalletHeader({ className }: WalletHeaderProps) {
         background: "linear-gradient(135deg, #2D8C7F 0%, #1E6B6B 100%)",
       }}
     >
-      {/* Back link */}
-      <button
-        onClick={back}
-        className="mb-3 flex items-center gap-1 text-xs text-white/90"
-      >
-        <ChevronLeft className="h-3 w-3" />
-        <span>Mon agent IA</span>
-      </button>
+      {/* Back link or equivalent spacing */}
+      {hideBackButton ? (
+        <div className="mb-3 h-4" />
+      ) : (
+        <button
+          onClick={back}
+          className="mb-3 flex items-center gap-1 text-xs text-white/90"
+        >
+          <ChevronLeft className="h-3 w-3" />
+          <span>Mon agent IA</span>
+        </button>
+      )}
 
       {/* Top row: + icon, title, user initials */}
       <div className="flex items-center justify-between">
@@ -49,14 +64,14 @@ export function WalletHeader({ className }: WalletHeaderProps) {
 
       {/* Greeting — centered */}
       <h2 className="mt-6 text-center text-2xl font-bold text-white">
-        Bonjour {WALLET_DATA.userName}
+        Bonjour {displayName}
       </h2>
 
       {/* Last update — centered, two lines */}
       <p className="mt-2 text-center text-sm text-white/70">
         Derni&egrave;re mise &agrave; jour
         <br />
-        {WALLET_DATA.lastUpdate}
+        {displayDate}
       </p>
     </div>
   );

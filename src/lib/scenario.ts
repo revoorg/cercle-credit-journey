@@ -33,6 +33,13 @@ export const STEP_DEFINITIONS: StepDefinition[] = [
   { id: "chat-add-wallet-sent", page: "chat", autoAdvance: { delayMs: 1000, nextStep: "chat-add-wallet-response" } },
   { id: "chat-add-wallet-response", page: "chat", autoAdvance: { delayMs: 2000, nextStep: "chat-add-wallet-done" } },
   { id: "chat-add-wallet-done", page: "chat" },
+
+  // Flashback flow
+  { id: "flashback-title", page: "chat", autoAdvance: { delayMs: 3000, nextStep: "flashback-wallet-home" } },
+  { id: "flashback-wallet-home", page: "wallet" },
+  { id: "flashback-financial-detail", page: "wallet" },
+  { id: "flashback-bank-consent", page: "wallet" },
+  { id: "flashback-bank-redirect", page: "wallet" },
 ];
 
 export const STEP_SEQUENCE: ScenarioStep[] = STEP_DEFINITIONS.map((d) => d.id);
@@ -54,4 +61,8 @@ export function getStepPage(step: ScenarioStep): PageType {
 export function getNextStep(step: ScenarioStep): ScenarioStep | null {
   const index = getStepIndex(step);
   return STEP_SEQUENCE[index + 1] ?? null;
+}
+
+export function isFlashbackStep(step: ScenarioStep): boolean {
+  return step.startsWith("flashback-");
 }

@@ -15,12 +15,17 @@ import { PaymentDetail } from "@/components/chat/payment-detail";
 import { WalletPrompt } from "@/components/chat/wallet-prompt";
 import { WalletConnected } from "@/components/chat/wallet-connected";
 import { ContractView } from "@/components/chat/contract-view";
+import { FlashbackTitle } from "@/components/chat/flashback-title";
 
 const WALLET_STEPS = new Set<ScenarioStep>([
   "wallet-home",
   "wallet-consent",
   "wallet-attribute-detail",
   "wallet-shared-confirmation",
+  "flashback-wallet-home",
+  "flashback-financial-detail",
+  "flashback-bank-consent",
+  "flashback-bank-redirect",
 ]);
 
 /**
@@ -99,6 +104,11 @@ export function ChatPage() {
   // Don't render chat page if we're on a wallet step
   if (WALLET_STEPS.has(step)) {
     return null;
+  }
+
+  // --- Flashback title: fullscreen white screen ---
+  if (step === "flashback-title") {
+    return <FlashbackTitle />;
   }
 
   // --- Contract view: fullscreen overlay ---

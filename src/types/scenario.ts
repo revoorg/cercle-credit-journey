@@ -21,7 +21,8 @@ export type ChatStep =
   | "chat-add-wallet-question"
   | "chat-add-wallet-sent"
   | "chat-add-wallet-response"
-  | "chat-add-wallet-done";
+  | "chat-add-wallet-done"
+  | "flashback-title";
 
 export type WalletStep =
   | "wallet-home"
@@ -29,7 +30,13 @@ export type WalletStep =
   | "wallet-attribute-detail"
   | "wallet-shared-confirmation";
 
-export type ScenarioStep = ChatStep | WalletStep;
+export type FlashbackWalletStep =
+  | "flashback-wallet-home"
+  | "flashback-financial-detail"
+  | "flashback-bank-consent"
+  | "flashback-bank-redirect";
+
+export type ScenarioStep = ChatStep | WalletStep | FlashbackWalletStep;
 
 export type PageType = "chat" | "wallet";
 

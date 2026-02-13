@@ -21,14 +21,17 @@ const ICON_MAP: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>
 interface WalletCategoryCardProps {
   category: WalletCategory;
   className?: string;
+  onAction?: () => void;
 }
 
 export function WalletCategoryCard({
   category,
   className,
+  onAction,
 }: WalletCategoryCardProps) {
   const bannerColor = COLOR_MAP[category.color];
   const Icon = ICON_MAP[category.id];
+  const isEmpty = category.attributeCount === 0 && onAction;
 
   return (
     <div
@@ -57,13 +60,30 @@ export function WalletCategoryCard({
 
       {/* Card body */}
       <div className="px-4 py-3">
-        <p className="text-xs text-cercle-grey-text">
-          Derni&egrave;re mise &agrave; jour : {category.lastUpdate}
-        </p>
-        <div className="mt-2 flex items-center gap-2 text-xs text-cercle-grey-text">
-          <List className="h-3.5 w-3.5" />
-          <span>{category.attributeCount} attributs disponibles</span>
-        </div>
+        {isEmpty ? (
+          <>
+            <div className="flex items-center gap-2 text-xs text-cercle-grey-text">
+              <List className="h-3.5 w-3.5" />
+              <span>0 attribut disponible</span>
+            </div>
+            <button
+              onClick={onAction}
+              className="mt-3 w-full rounded-full bg-cercle-teal py-2.5 text-sm font-medium text-white"
+            >
+              Certifier mes informations
+            </button>
+          </>
+        ) : (
+          <>
+            <p className="text-xs text-cercle-grey-text">
+              Derni&egrave;re mise &agrave; jour : {category.lastUpdate}
+            </p>
+            <div className="mt-2 flex items-center gap-2 text-xs text-cercle-grey-text">
+              <List className="h-3.5 w-3.5" />
+              <span>{category.attributeCount} attributs disponibles</span>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
