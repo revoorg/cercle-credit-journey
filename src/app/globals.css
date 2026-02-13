@@ -257,3 +257,13 @@
   animation-iteration-count: infinite;
   animation-delay: var(--wave-delay, 0s);
 }
+
+/* Progress bar fill animation (0% → 17% over 5s, simulating 5s of a 30s process) */
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: 17%; }
+}
+
+.animate-progress-fill {
+  animation: progress-fill 5s linear forwards;
+}

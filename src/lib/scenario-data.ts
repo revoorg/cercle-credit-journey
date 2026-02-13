@@ -290,3 +290,34 @@ export const FLASHBACK_BANK_REDIRECT_DATA = {
     "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à Algoan.",
   buttonText: "Poursuivre vers ma banque",
 };
+
+export const FLASHBACK_BANK_ACCOUNTS_DATA = {
+  title: "Accounts access\nrequest",
+  subtitle:
+    "Authorise Wallet to read your accounts information.\nPermission will expire on 15 Mai 2024.",
+  sectionTitle: "Accounts",
+  accountName: "EUR",
+  accountBalance: "€2 153,32",
+  accountFlag: "/images/banks/eu-flag.png",
+  infoLabel: "Info I'm providing",
+  cancelText: "Cancel",
+  authoriseText: "Authorise",
+};
+
+export const FLASHBACK_BANK_PROGRESS_DATA = {
+  title: "Transmission en cours...",
+  waitText: "Patientez s'il vous plaît...",
+  warningText: "Merci de ne pas quitter ni rafraîchir\ncette page.",
+};
+
+export const FLASHBACK_BANK_WARNING_DATA = {
+  title: "Absence de revenu\nsur le compte",
+  bankName: "Revolut",
+  bankLogo: "/images/banks/revolut.png",
+  warningIcon: "/images/icons/icon-warning-orange.svg",
+  noIncomeText: "Aucun revenu n'a été détecté\nsur ce compte.",
+  addAccountText:
+    "Ajoutez le compte sur lequel vous percevez vos revenus pour maximiser vos chances que votre demande soit acceptée.",
+  addButtonText: "Ajouter un autre compte",
+  continueText: "Continuer sans compte additionnel",
+};

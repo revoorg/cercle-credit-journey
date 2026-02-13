@@ -11,6 +11,10 @@ import { WalletSharedConfirmation } from "@/components/wallet/wallet-shared-conf
 import { FlashbackFinancialDetail } from "@/components/wallet/flashback-financial-detail";
 import { FlashbackBankConsent } from "@/components/wallet/flashback-bank-consent";
 import { FlashbackBankRedirect } from "@/components/wallet/flashback-bank-redirect";
+import { FlashbackBankLoading } from "@/components/wallet/flashback-bank-loading";
+import { FlashbackBankAccounts } from "@/components/wallet/flashback-bank-accounts";
+import { FlashbackBankProgress } from "@/components/wallet/flashback-bank-progress";
+import { FlashbackBankWarning } from "@/components/wallet/flashback-bank-warning";
 
 export function WalletPage() {
   const { step, goTo } = useScenario();
@@ -38,6 +42,40 @@ export function WalletPage() {
           userName={FLASHBACK_WALLET_DATA.userName}
         />
         <FlashbackBankRedirect />
+      </div>
+    );
+  }
+
+  if (step === "flashback-bank-loading") {
+    return <FlashbackBankLoading />;
+  }
+
+  if (step === "flashback-bank-accounts") {
+    return <FlashbackBankAccounts />;
+  }
+
+  if (step === "flashback-bank-progress") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-white">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_DATA.userName}
+        />
+        <FlashbackBankProgress />
+      </div>
+    );
+  }
+
+  if (step === "flashback-bank-warning") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-white">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_DATA.userName}
+        />
+        <FlashbackBankWarning />
       </div>
     );
   }
