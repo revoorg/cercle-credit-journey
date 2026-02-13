@@ -38,7 +38,7 @@ export default function RootLayout({
       <head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${fontSans.variable} ${fontBaloo.variable} font-sans antialiased`}>
+      <body className={`${fontSans.variable} ${fontBaloo.variable} font-sans`}>
         <ScenarioProvider>
           {children}
           <PageTransitionOverlay />
