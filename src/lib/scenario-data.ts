@@ -268,7 +268,7 @@ export const FLASHBACK_BANK_CONSENT_DATA = {
 export const FLASHBACK_BANK_REDIRECT_DATA = {
   title: "Connectez votre banque",
   bankName: "Revolut",
-  bankLogo: "/images/banks/revolut.svg",
+  bankLogo: "/images/banks/revolut.png",
   steps: [
     {
       title: "Redirection sécurisée",

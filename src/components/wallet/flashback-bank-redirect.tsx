@@ -8,15 +8,15 @@ export function FlashbackBankRedirect() {
   const { advance } = useScenario();
 
   return (
-    <div className="flex flex-col items-center px-6 py-6 gap-6">
+    <div className="flex flex-col px-6 py-6">
       {/* Title */}
-      <h2 className="text-center text-2xl font-semibold text-[#242A2F]">
+      <h2 className="text-center text-2xl font-semibold leading-[30px] text-[#242A2F]">
         {FLASHBACK_BANK_REDIRECT_DATA.title}
       </h2>
 
       {/* Bank row */}
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-[5px] border border-[#DEE3E6] overflow-hidden">
+      <div className="mt-8 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-[5px] border border-[#DEE3E6] bg-white overflow-hidden">
           <Image
             src={FLASHBACK_BANK_REDIRECT_DATA.bankLogo}
             alt={FLASHBACK_BANK_REDIRECT_DATA.bankName}
@@ -24,47 +24,71 @@ export function FlashbackBankRedirect() {
             height={28}
           />
         </div>
-        <span className="text-base font-medium text-[#242A2F]">
+        <span className="text-lg font-medium leading-[27px] text-[#242A2F]">
           {FLASHBACK_BANK_REDIRECT_DATA.bankName}
         </span>
       </div>
 
       {/* Vertical timeline */}
-      <div className="w-full px-2">
-        <div className="relative flex flex-col gap-0">
-          {FLASHBACK_BANK_REDIRECT_DATA.steps.map((s, i) => (
-            <div key={s.title} className="relative flex gap-4 pb-6 last:pb-0">
-              {/* Vertical line (except last item) */}
-              {i < FLASHBACK_BANK_REDIRECT_DATA.steps.length - 1 && (
-                <div className="absolute left-[7px] top-4 bottom-0 w-px bg-[#DEE3E6]" />
-              )}
-              {/* Dot */}
-              <div className="relative z-10 mt-1.5 flex h-[15px] w-[15px] shrink-0 items-center justify-center">
-                <div className="h-[11px] w-[11px] rounded-full border-2 border-cercle-teal bg-white" />
-              </div>
-              {/* Content */}
-              <div className="flex-1">
-                <p className="text-[15px] font-semibold text-[#242A2F]">
-                  {s.title}
-                </p>
-                <p className="mt-0.5 text-[15px] leading-relaxed text-[#47535C]">
-                  {s.description}
-                </p>
-              </div>
-            </div>
-          ))}
+      <div className="relative mt-8 ml-[18px] pl-[26px]">
+        {/* Vertical line segment 1: dot 1 → dot 2 */}
+        <div className="absolute left-0 top-[5px] h-[91px] w-px bg-[#7C8D9A]" />
+        {/* Vertical line segment 2: dot 2 → dot 3 */}
+        <div className="absolute left-0 top-[112px] h-[84px] w-px bg-[#7C8D9A]" />
+
+        {/* Step 1 — Redirection sécurisée */}
+        <div className="relative pb-8">
+          {/* Dot */}
+          <div className="absolute -left-[29px] top-[3px] h-[5px] w-[5px] rounded-full border border-[#7C8D9A] bg-[#7C8D9A]" />
+          <p className="text-lg font-medium leading-6 text-[#47535C]">
+            {FLASHBACK_BANK_REDIRECT_DATA.steps[0].title}
+          </p>
+          <p className="mt-1 text-base leading-6 text-[#47535C]">
+            {FLASHBACK_BANK_REDIRECT_DATA.steps[0].description}
+          </p>
+        </div>
+
+        {/* Step 2 — Authentification (with lock icon) */}
+        <div className="relative pb-8">
+          {/* Lock + check icon (replaces dot) */}
+          <div className="absolute -left-[40px] -top-[2px]">
+            <Image
+              src="/images/icons/icon-lock-check.svg"
+              alt=""
+              width={22}
+              height={26}
+            />
+          </div>
+          <p className="text-lg font-medium leading-6 text-[#47535C]">
+            {FLASHBACK_BANK_REDIRECT_DATA.steps[1].title}
+          </p>
+          <p className="mt-1 text-base leading-6 text-[#47535C]">
+            {FLASHBACK_BANK_REDIRECT_DATA.steps[1].description}
+          </p>
+        </div>
+
+        {/* Step 3 — Retour */}
+        <div className="relative">
+          {/* Dot */}
+          <div className="absolute -left-[29px] top-[3px] h-[5px] w-[5px] rounded-full border border-[#7C8D9A] bg-[#7C8D9A]" />
+          <p className="text-lg font-medium leading-6 text-[#47535C]">
+            {FLASHBACK_BANK_REDIRECT_DATA.steps[2].title}
+          </p>
+          <p className="mt-1 text-base leading-6 text-[#47535C]">
+            {FLASHBACK_BANK_REDIRECT_DATA.steps[2].description}
+          </p>
         </div>
       </div>
 
       {/* Disclaimer */}
-      <p className="text-center text-[15px] italic text-[#47535C] leading-relaxed">
+      <p className="mt-auto pt-10 text-center text-[15px] italic leading-[21px] text-[#47535C]">
         {FLASHBACK_BANK_REDIRECT_DATA.disclaimer}
       </p>
 
       {/* CTA button */}
       <button
         onClick={() => advance()}
-        className="h-[52px] w-full rounded-full bg-cercle-teal text-base font-medium text-white"
+        className="mt-6 h-[52px] w-full rounded-full bg-cercle-teal text-lg font-medium text-white"
       >
         {FLASHBACK_BANK_REDIRECT_DATA.buttonText}
       </button>
