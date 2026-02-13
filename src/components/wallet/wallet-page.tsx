@@ -84,7 +84,7 @@ export function WalletPage() {
 
   if (step === "flashback-bank-selection") {
     return (
-      <div className="h-dvh overflow-y-auto bg-white">
+      <div className="flex h-dvh flex-col bg-white">
         <WalletHeader
           hideBackButton
           lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}

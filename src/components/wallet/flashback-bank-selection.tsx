@@ -8,15 +8,15 @@ export function FlashbackBankSelection() {
   const { advance } = useScenario();
 
   return (
-    <div className="flex flex-col pb-6">
-      {/* Title */}
-      <h2 className="mt-6 text-center text-2xl font-semibold leading-[30px] text-[#242A2F]">
-        {FLASHBACK_BANK_SELECTION_DATA.title}
-      </h2>
+    <div className="flex min-h-0 flex-1 flex-col">
+      {/* Scrollable bank list */}
+      <div className="flex-1 overflow-y-auto px-6 pb-4">
+        {/* Title */}
+        <h2 className="mt-6 text-center text-2xl font-semibold leading-[30px] text-[#242A2F]">
+          {FLASHBACK_BANK_SELECTION_DATA.title}
+        </h2>
 
-      {/* Bank list */}
-      <div className="mt-6 px-6">
-        <p className="text-sm leading-[21px] text-[#60707C]">
+        <p className="mt-6 text-sm leading-[21px] text-[#60707C]">
           {FLASHBACK_BANK_SELECTION_DATA.availableLabel}
         </p>
 
@@ -57,11 +57,9 @@ export function FlashbackBankSelection() {
         ))}
       </div>
 
-      {/* Suggestions bar (fixed at bottom) */}
-      <div className="mt-auto pt-8 px-6">
-        <div className="h-px bg-[#DEE3E6]" />
-
-        <p className="mt-4 text-sm leading-[21px] text-[#60707C]">
+      {/* Sticky suggestions bar at bottom */}
+      <div className="shrink-0 bg-white px-6 pb-6 pt-4 shadow-[0px_-1px_8px_0px_rgba(0,0,0,0.1)]">
+        <p className="text-sm leading-[21px] text-[#60707C]">
           {FLASHBACK_BANK_SELECTION_DATA.suggestionsLabel}
         </p>
 
