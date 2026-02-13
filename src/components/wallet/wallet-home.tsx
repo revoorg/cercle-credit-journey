@@ -25,7 +25,7 @@ export function WalletHome({
           key={category.id}
           category={category}
           onAction={
-            category.attributeCount === 0 && onCategoryAction
+            onCategoryAction
               ? () => onCategoryAction(category.id)
               : undefined
           }

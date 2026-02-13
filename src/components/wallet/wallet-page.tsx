@@ -2,7 +2,7 @@
 
 import { useScenario } from "@/hooks/use-scenario";
 import { isFlashbackStep } from "@/lib/scenario";
-import { FLASHBACK_WALLET_DATA } from "@/lib/scenario-data";
+import { FLASHBACK_WALLET_DATA, FLASHBACK_WALLET_UPDATED_DATA } from "@/lib/scenario-data";
 import { WalletHeader } from "@/components/wallet/wallet-header";
 import { WalletHome } from "@/components/wallet/wallet-home";
 import { WalletConsentCard } from "@/components/wallet/wallet-consent-card";
@@ -17,6 +17,12 @@ import { FlashbackBankProgress } from "@/components/wallet/flashback-bank-progre
 import { FlashbackBankWarning } from "@/components/wallet/flashback-bank-warning";
 import { FlashbackBankSelection } from "@/components/wallet/flashback-bank-selection";
 import { FlashbackBankRedirectCE } from "@/components/wallet/flashback-bank-redirect-ce";
+import { FlashbackCELoading } from "@/components/wallet/flashback-ce-loading";
+import { FlashbackCEConsent } from "@/components/wallet/flashback-ce-consent";
+import { FlashbackCEAuthorized } from "@/components/wallet/flashback-ce-authorized";
+import { FlashbackCEProgress } from "@/components/wallet/flashback-ce-progress";
+import { FlashbackTransmissionComplete } from "@/components/wallet/flashback-transmission-complete";
+import { FlashbackCertifiedDetail } from "@/components/wallet/flashback-certified-detail";
 
 export function WalletPage() {
   const { step, goTo } = useScenario();
@@ -104,6 +110,73 @@ export function WalletPage() {
           userName={FLASHBACK_WALLET_DATA.userName}
         />
         <FlashbackBankRedirectCE />
+      </div>
+    );
+  }
+
+  if (step === "flashback-ce-loading") {
+    return <FlashbackCELoading />;
+  }
+
+  if (step === "flashback-ce-consent") {
+    return <FlashbackCEConsent />;
+  }
+
+  if (step === "flashback-ce-authorized") {
+    return <FlashbackCEAuthorized />;
+  }
+
+  if (step === "flashback-ce-progress") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-white">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_DATA.userName}
+        />
+        <FlashbackCEProgress />
+      </div>
+    );
+  }
+
+  if (step === "flashback-transmission-complete") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-white">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_DATA.userName}
+        />
+        <FlashbackTransmissionComplete />
+      </div>
+    );
+  }
+
+  if (step === "flashback-certified-detail") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-cercle-soft-blue">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_DATA.userName}
+        />
+        <FlashbackCertifiedDetail />
+        <WalletHome
+          categories={FLASHBACK_WALLET_DATA.categories.filter((c) => c.id !== "financial")}
+        />
+      </div>
+    );
+  }
+
+  if (step === "flashback-wallet-updated") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-cercle-soft-blue">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_UPDATED_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_UPDATED_DATA.userName}
+        />
+        <WalletHome categories={FLASHBACK_WALLET_UPDATED_DATA.categories} />
       </div>
     );
   }

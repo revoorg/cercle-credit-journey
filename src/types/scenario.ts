@@ -40,7 +40,14 @@ export type FlashbackWalletStep =
   | "flashback-bank-progress"
   | "flashback-bank-warning"
   | "flashback-bank-selection"
-  | "flashback-bank-redirect-ce";
+  | "flashback-bank-redirect-ce"
+  | "flashback-ce-loading"
+  | "flashback-ce-consent"
+  | "flashback-ce-authorized"
+  | "flashback-ce-progress"
+  | "flashback-transmission-complete"
+  | "flashback-certified-detail"
+  | "flashback-wallet-updated";
 
 export type ScenarioStep = ChatStep | WalletStep | FlashbackWalletStep;
 

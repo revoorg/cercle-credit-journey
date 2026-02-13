@@ -31,7 +31,7 @@ export function WalletCategoryCard({
 }: WalletCategoryCardProps) {
   const bannerColor = COLOR_MAP[category.color];
   const Icon = ICON_MAP[category.id];
-  const isEmpty = category.attributeCount === 0 && onAction;
+  const isEmpty = category.attributeCount === 0;
 
   return (
     <div

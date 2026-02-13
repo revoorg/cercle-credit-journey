@@ -373,3 +373,93 @@ export const FLASHBACK_BANK_REDIRECT_CE_DATA = {
     "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à Algoan.",
   buttonText: "Poursuivre vers ma banque",
 };
+
+export const FLASHBACK_CE_CONSENT_DATA = {
+  title: "Validez votre opération",
+  bankLogo: "/images/banks/caisse-epargne.png",
+  fraudTitle: "Information Fraude",
+  fraudText:
+    "Si vous n'êtes pas à l'intiative de cette opération, cliquez sur \"JE REFUSE CETTE OPÉRATION\" et contactez votre conseiller.",
+  requestText:
+    "Wallet demande un accès temporaire\npour récupérer les informations de\nvos comptes bancaires.",
+  authorizeText: "J'autorise cette opération",
+  refuseText: "Je refuse cette opération",
+};
+
+export const FLASHBACK_CE_AUTHORIZED_DATA = {
+  title: "Opération autorisée",
+  subtitle:
+    "Veuillez retourner sur le site du demandeur pour vous assurer que l'opération a bien été prise en compte.",
+  buttonText: "Fermer",
+};
+
+export const FLASHBACK_CE_PROGRESS_DATA = {
+  title: "Transmission en cours...",
+  bankLogo: "/images/banks/caisse-epargne.png",
+  waitText: "Patientez s'il vous plaît...",
+  warningText: "Merci de ne pas quitter ni rafraîchir\ncette page.",
+};
+
+export const FLASHBACK_TRANSMISSION_COMPLETE_DATA = {
+  title: "Transmission terminée !",
+  banks: [
+    { name: "Revolut", logo: "/images/banks/revolut.png" },
+    { name: "Caisse d'Épargne", logo: "/images/banks/caisse-epargne.png" },
+  ],
+  successText: "Données récupérées avec succès",
+  addButtonText: "Ajouter un autre compte",
+  certifyButtonText: "Certifier mes données",
+};
+
+export const FLASHBACK_CERTIFIED_DETAIL_DATA = {
+  categoryTitle: "Mes informations financières",
+  certifiedDate: "15/02/2026",
+  attributes: [
+    { label: "Salaire", value: "2 400€" },
+    { label: "Autres revenus", value: "300€" },
+    { label: "Mensualités de crédit", value: "600€" },
+    { label: "Autres charges", value: "120€" },
+    { label: "Reste-à-vivre", value: "1 980€" },
+    { label: "Alertes de risque", value: "néant" },
+    { label: "Score de crédit", value: "780", highlight: true },
+  ],
+  borrowingCapacity: "8 000€ sur une durée de 48 mois.",
+  disclaimer:
+    "Ces montants sont basés sur vos transactions bancaires des derniers mois et sont dynamiques. Leur montant peut donc évoluer à chaque mise à jour hebdomadaire de vos données bancaires.",
+  buttonText: "Certifier mes données",
+};
+
+export const FLASHBACK_WALLET_UPDATED_DATA = {
+  userName: "Guillaume",
+  lastUpdate: "15/02/2026",
+  categories: [
+    {
+      id: "identity",
+      title: "Mon identité",
+      color: "teal" as const,
+      lastUpdate: "11/01/2026",
+      attributeCount: 8,
+    },
+    {
+      id: "housing",
+      title: "Mon logement",
+      color: "green-teal" as const,
+      lastUpdate: "",
+      attributeCount: 0,
+    },
+    {
+      id: "financial",
+      title: "Mes informations financières",
+      color: "purple" as const,
+      lastUpdate: "15/02/2026",
+      attributeCount: 8,
+    },
+    {
+      id: "health",
+      title: "Ma santé",
+      color: "pink" as const,
+      lastUpdate: "",
+      attributeCount: 0,
+    },
+  ] satisfies WalletCategory[],
+};
