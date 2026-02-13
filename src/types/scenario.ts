@@ -38,7 +38,9 @@ export type FlashbackWalletStep =
   | "flashback-bank-loading"
   | "flashback-bank-accounts"
   | "flashback-bank-progress"
-  | "flashback-bank-warning";
+  | "flashback-bank-warning"
+  | "flashback-bank-selection"
+  | "flashback-bank-redirect-ce";
 
 export type ScenarioStep = ChatStep | WalletStep | FlashbackWalletStep;
 

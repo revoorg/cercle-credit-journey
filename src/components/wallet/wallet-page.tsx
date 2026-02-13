@@ -15,6 +15,8 @@ import { FlashbackBankLoading } from "@/components/wallet/flashback-bank-loading
 import { FlashbackBankAccounts } from "@/components/wallet/flashback-bank-accounts";
 import { FlashbackBankProgress } from "@/components/wallet/flashback-bank-progress";
 import { FlashbackBankWarning } from "@/components/wallet/flashback-bank-warning";
+import { FlashbackBankSelection } from "@/components/wallet/flashback-bank-selection";
+import { FlashbackBankRedirectCE } from "@/components/wallet/flashback-bank-redirect-ce";
 
 export function WalletPage() {
   const { step, goTo } = useScenario();
@@ -76,6 +78,32 @@ export function WalletPage() {
           userName={FLASHBACK_WALLET_DATA.userName}
         />
         <FlashbackBankWarning />
+      </div>
+    );
+  }
+
+  if (step === "flashback-bank-selection") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-white">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_DATA.userName}
+        />
+        <FlashbackBankSelection />
+      </div>
+    );
+  }
+
+  if (step === "flashback-bank-redirect-ce") {
+    return (
+      <div className="h-dvh overflow-y-auto bg-white">
+        <WalletHeader
+          hideBackButton
+          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
+          userName={FLASHBACK_WALLET_DATA.userName}
+        />
+        <FlashbackBankRedirectCE />
       </div>
     );
   }

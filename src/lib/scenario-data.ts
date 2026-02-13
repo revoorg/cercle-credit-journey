@@ -321,3 +321,55 @@ export const FLASHBACK_BANK_WARNING_DATA = {
   addButtonText: "Ajouter un autre compte",
   continueText: "Continuer sans compte additionnel",
 };
+
+export const FLASHBACK_BANK_SELECTION_DATA = {
+  title: "Sélectionnez votre banque",
+  searchPlaceholder: "Recherchez votre banque",
+  suggestionsLabel: "SUGGESTIONS",
+  availableLabel: "BANQUES DISPONIBLES",
+  suggestions: [
+    { id: "credit-mutuel", name: "Crédit\nMutuel", logo: "/images/banks/credit-mutuel.png" },
+    { id: "credit-agricole", name: "Crédit\nAgricole", logo: "/images/banks/credit-agricole.png" },
+    { id: "caisse-epargne", name: "Caisse\nd'Épargne", logo: "/images/banks/caisse-epargne.png" },
+    { id: "banque-postale", name: "La Banque\nPostale", logo: "/images/banks/banque-postale.png" },
+    { id: "revolut", name: "Revolut", logo: "/images/banks/revolut.png" },
+  ],
+  banks: [
+    { letter: "A", items: [
+      { id: "allianz", name: "Allianz Banque", logo: "/images/banks/allianz.png" },
+      { id: "american-express", name: "American Express", logo: "/images/banks/american-express.png" },
+      { id: "axa", name: "Axa Banque", logo: "/images/banks/axa.png" },
+    ]},
+    { letter: "B", items: [
+      { id: "banque-populaire", name: "Banque Populaire", logo: "/images/banks/banque-populaire.png" },
+      { id: "bnp-paribas", name: "BNP Paribas", logo: "/images/banks/bnp-paribas.png" },
+      { id: "boursorama", name: "Boursorama", logo: "/images/banks/boursorama.png" },
+    ]},
+    { letter: "C", items: [
+      { id: "caisse-epargne-list", name: "Caisse d'Épargne", logo: "/images/banks/caisse-epargne.png" },
+    ]},
+  ],
+};
+
+export const FLASHBACK_BANK_REDIRECT_CE_DATA = {
+  title: "Connectez votre banque",
+  bankName: "Caisse d'Épargne",
+  bankLogo: "/images/banks/caisse-epargne.png",
+  steps: [
+    {
+      title: "Redirection sécurisée",
+      description: "vers l'application ou le site web de votre banque.",
+    },
+    {
+      title: "Authentification",
+      description: "avec votre mode d'identification habituel.",
+    },
+    {
+      title: "Retour",
+      description: "sur ce parcours pour finaliser la transmission de vos données.",
+    },
+  ],
+  disclaimer:
+    "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à Algoan.",
+  buttonText: "Poursuivre vers ma banque",
+};

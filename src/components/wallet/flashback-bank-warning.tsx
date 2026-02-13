@@ -54,6 +54,7 @@ export function FlashbackBankWarning() {
 
       {/* Add account button */}
       <button
+        onClick={() => advance()}
         className="mt-6 flex h-[52px] w-[310px] items-center justify-center gap-4 rounded-full border border-dashed border-[#0B7ACE] bg-cercle-teal"
       >
         {/* Plus icon in white circle */}

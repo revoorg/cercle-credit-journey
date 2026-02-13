@@ -44,6 +44,8 @@ export const STEP_DEFINITIONS: StepDefinition[] = [
   { id: "flashback-bank-accounts", page: "wallet" },
   { id: "flashback-bank-progress", page: "wallet", autoAdvance: { delayMs: 5000, nextStep: "flashback-bank-warning" } },
   { id: "flashback-bank-warning", page: "wallet" },
+  { id: "flashback-bank-selection", page: "wallet" },
+  { id: "flashback-bank-redirect-ce", page: "wallet" },
 ];
 
 export const STEP_SEQUENCE: ScenarioStep[] = STEP_DEFINITIONS.map((d) => d.id);

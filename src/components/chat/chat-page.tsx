@@ -30,6 +30,8 @@ const WALLET_STEPS = new Set<ScenarioStep>([
   "flashback-bank-accounts",
   "flashback-bank-progress",
   "flashback-bank-warning",
+  "flashback-bank-selection",
+  "flashback-bank-redirect-ce",
 ]);
 
 /**
