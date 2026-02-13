@@ -8,6 +8,7 @@ import { WALLET_DATA } from "@/lib/scenario-data";
 interface WalletHeaderProps {
   className?: string;
   hideBackButton?: boolean;
+  compact?: boolean;
   lastUpdate?: string;
   userName?: string;
 }
@@ -15,6 +16,7 @@ interface WalletHeaderProps {
 export function WalletHeader({
   className,
   hideBackButton,
+  compact,
   lastUpdate,
   userName,
 }: WalletHeaderProps) {
@@ -26,7 +28,8 @@ export function WalletHeader({
   return (
     <div
       className={cn(
-        "relative flex-shrink-0 px-6 pt-10 pb-10",
+        "relative flex-shrink-0 px-6",
+        compact ? "pt-4 pb-10" : "pt-10 pb-10",
         className
       )}
       style={{
@@ -62,17 +65,21 @@ export function WalletHeader({
         </div>
       </div>
 
-      {/* Greeting — centered */}
-      <h2 className="mt-6 text-center text-2xl font-bold text-white">
-        Bonjour {displayName}
-      </h2>
+      {!compact && (
+        <>
+          {/* Greeting — centered */}
+          <h2 className="mt-6 text-center text-2xl font-bold text-white">
+            Bonjour {displayName}
+          </h2>
 
-      {/* Last update — centered, two lines */}
-      <p className="mt-2 text-center text-sm text-white/70">
-        Derni&egrave;re mise &agrave; jour
-        <br />
-        {displayDate}
-      </p>
+          {/* Last update — centered, two lines */}
+          <p className="mt-2 text-center text-sm text-white/70">
+            Derni&egrave;re mise &agrave; jour
+            <br />
+            {displayDate}
+          </p>
+        </>
+      )}
     </div>
   );
 }

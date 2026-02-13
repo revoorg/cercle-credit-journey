@@ -31,12 +31,17 @@ export function WalletPage() {
   if (step === "flashback-bank-consent") {
     return (
       <div className="animate-page-slide-up h-dvh overflow-y-auto bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackBankConsent />
+      </div>
+    );
+  }
+
+  if (step === "flashback-bank-selection-revolut") {
+    return (
+      <div className="flex h-dvh flex-col bg-white">
+        <WalletHeader hideBackButton compact />
+        <FlashbackBankSelection targetBankId="revolut" />
       </div>
     );
   }
@@ -44,11 +49,7 @@ export function WalletPage() {
   if (step === "flashback-bank-redirect") {
     return (
       <div className="animate-page-slide-up h-dvh overflow-y-auto bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackBankRedirect />
       </div>
     );
@@ -65,11 +66,7 @@ export function WalletPage() {
   if (step === "flashback-bank-progress") {
     return (
       <div className="h-dvh overflow-y-auto bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackBankProgress />
       </div>
     );
@@ -78,11 +75,7 @@ export function WalletPage() {
   if (step === "flashback-bank-warning") {
     return (
       <div className="h-dvh overflow-y-auto bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackBankWarning />
       </div>
     );
@@ -91,11 +84,7 @@ export function WalletPage() {
   if (step === "flashback-bank-selection") {
     return (
       <div className="flex h-dvh flex-col bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackBankSelection />
       </div>
     );
@@ -104,11 +93,7 @@ export function WalletPage() {
   if (step === "flashback-bank-redirect-ce") {
     return (
       <div className="h-dvh overflow-y-auto bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackBankRedirectCE />
       </div>
     );
@@ -129,11 +114,7 @@ export function WalletPage() {
   if (step === "flashback-ce-progress") {
     return (
       <div className="h-dvh overflow-y-auto bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackCEProgress />
       </div>
     );
@@ -142,11 +123,7 @@ export function WalletPage() {
   if (step === "flashback-transmission-complete") {
     return (
       <div className="h-dvh overflow-y-auto bg-white">
-        <WalletHeader
-          hideBackButton
-          lastUpdate={FLASHBACK_WALLET_DATA.lastUpdate}
-          userName={FLASHBACK_WALLET_DATA.userName}
-        />
+        <WalletHeader hideBackButton compact />
         <FlashbackTransmissionComplete />
       </div>
     );

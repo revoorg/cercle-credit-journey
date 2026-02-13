@@ -34,6 +34,7 @@ export type FlashbackWalletStep =
   | "flashback-wallet-home"
   | "flashback-financial-detail"
   | "flashback-bank-consent"
+  | "flashback-bank-selection-revolut"
   | "flashback-bank-redirect"
   | "flashback-bank-loading"
   | "flashback-bank-accounts"

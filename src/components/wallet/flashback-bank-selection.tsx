@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useScenario } from "@/hooks/use-scenario";
 import { FLASHBACK_BANK_SELECTION_DATA } from "@/lib/scenario-data";
 
-export function FlashbackBankSelection() {
+interface FlashbackBankSelectionProps {
+  targetBankId?: string;
+}
+
+export function FlashbackBankSelection({ targetBankId = "caisse-epargne" }: FlashbackBankSelectionProps) {
   const { advance } = useScenario();
 
   return (
@@ -33,7 +37,7 @@ export function FlashbackBankSelection() {
               <button
                 key={bank.id}
                 onClick={() => {
-                  if (bank.id === "caisse-epargne-list") {
+                  if (bank.id === `${targetBankId}-list` || bank.id === targetBankId) {
                     advance();
                   }
                 }}
@@ -69,7 +73,7 @@ export function FlashbackBankSelection() {
             <button
               key={bank.id}
               onClick={() => {
-                if (bank.id === "caisse-epargne") {
+                if (bank.id === targetBankId) {
                   advance();
                 }
               }}
