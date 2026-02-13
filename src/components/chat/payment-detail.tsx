@@ -82,26 +82,13 @@ export function PaymentDetail() {
         {/* Insurance section */}
         <div className="mx-5 mb-5 rounded-xl bg-[#F6F8F9] px-4 py-4">
           <div className="flex items-center gap-2">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="shrink-0 text-cercle-blue"
-            >
-              <path
-                d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5Z"
-                fill="currentColor"
-                opacity="0.2"
-              />
-              <path
-                d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Image
+              src="/images/icons/icon-insurance.svg"
+              alt=""
+              width={20}
+              height={18}
+              className="shrink-0"
+            />
             <span className="text-base font-medium text-[#242A2F]">
               Assurance emprunteur facultative
             </span>
