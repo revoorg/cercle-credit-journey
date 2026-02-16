@@ -104,7 +104,7 @@ En Europe (et donc en France), **le TAEG est obligatoire et strictement encadré
 Une autre question ?`,
 
   userConfirmMessage:
-    "Non c’est très clair. Prend le voyage avec le crédit et l’assurance",
+    "Non c’est très clair. Prend le voyage avec le crédit et l’assurance.",
 
   walletIntro: "Ok, voici donc la prochaine étape :",
 
@@ -439,18 +439,18 @@ export const FLASHBACK_WALLET_UPDATED_DATA = {
       attributeCount: 8,
     },
     {
-      id: "housing",
-      title: "Mon logement",
-      color: "green-teal" as const,
-      lastUpdate: "",
-      attributeCount: 0,
-    },
-    {
       id: "financial",
       title: "Mes informations financières",
       color: "purple" as const,
       lastUpdate: "15/02/2026",
       attributeCount: 8,
+    },
+    {
+      id: "housing",
+      title: "Mon logement",
+      color: "green-teal" as const,
+      lastUpdate: "",
+      attributeCount: 0,
     },
     {
       id: "health",
