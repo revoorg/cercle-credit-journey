@@ -46,7 +46,7 @@ export function PaymentOptions() {
                 goTo("chat-payment-detail");
               }
             }}
-            className="flex h-[72px] cursor-pointer items-center gap-3 rounded-[15px] border border-[#DEE3E6] bg-white px-6 transition-shadow hover:shadow-md"
+            className="flex h-[72px] cursor-pointer items-center gap-3 rounded-[15px] border border-[#DEE3E6] bg-white px-6 text-left transition-shadow hover:shadow-md"
           >
             <span className="text-lg font-medium text-[#242A2F]">
               {option.label}
