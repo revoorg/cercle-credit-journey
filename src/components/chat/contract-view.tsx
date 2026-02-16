@@ -50,7 +50,7 @@ export function ContractView() {
 
           <ContractSection title="1 - Identité et coordonnées du prêteur">
             <p>
-              MonCrédit.com SAS, au capital de 10 000 000€, immatriculée au RCS
+              <strong>MonCrédit.com</strong> SAS, au capital de 10 000 000€, immatriculée au RCS
               de Paris sous le n° 123 456 789, dont le siège social est situé au
               15 rue de la Banque, 75002 Paris. Intermédiaire en opérations de
               banque et en services de paiement (IOBSP) inscrit à l&apos;ORIAS
@@ -157,7 +157,7 @@ export function ContractView() {
               INFORMATIONS GENERALES
             </p>
             <p className="mt-2 text-xs">
-              Offre valable sous réserve d&apos;acceptation par MonCrédit.com
+              Offre valable sous réserve d&apos;acceptation par <strong>MonCrédit.com</strong>
               SAS. Le présent document ne constitue pas une offre de contrat de
               crédit.
             </p>

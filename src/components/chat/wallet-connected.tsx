@@ -78,7 +78,7 @@ export function WalletConnected() {
                 </div>
                 <ProgressBar />
                 <p className="text-base text-[#47535C]">
-                  {CHAT_DATA.walletStudyMessage}
+                  <span className="font-bold">MonCrédit.com</span> étudie votre demande
                 </p>
               </>
             )}

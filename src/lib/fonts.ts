@@ -22,5 +22,5 @@ export const fontSans = localFont({
 export const fontBaloo = Baloo_2({
   subsets: ["latin"],
   variable: "--font-baloo",
-  weight: ["400"],
+  weight: ["400", "700"],
 });
