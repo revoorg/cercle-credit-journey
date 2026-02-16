@@ -50,22 +50,23 @@ export function FlashbackBankWarning() {
         <p className="mt-4 text-center text-lg leading-[27px] text-[#47535C]">
           {FLASHBACK_BANK_WARNING_DATA.addAccountText}
         </p>
-      </div>
 
-      {/* Add account button */}
-      <button
-        onClick={() => advance()}
-        className="mt-6 flex h-[52px] w-[310px] items-center justify-center gap-4 rounded-full border border-dashed border-[#0B7ACE] bg-cercle-teal"
-      >
-        {/* Plus icon in white circle */}
-        <div className="relative flex h-6 w-6 items-center justify-center">
-          <div className="h-6 w-6 rounded-full bg-white" />
-          <span className="absolute text-2xl font-light leading-none text-[#0B7ACE]">+</span>
-        </div>
-        <span className="text-lg font-medium text-white">
-          {FLASHBACK_BANK_WARNING_DATA.addButtonText}
-        </span>
-      </button>
+        {/* Add account button */}
+        <button
+          onClick={() => advance()}
+          className="mt-6 flex h-[52px] w-full items-center justify-center gap-4 rounded-full bg-cercle-teal"
+        >
+          {/* Plus icon in white circle */}
+          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 0.5V11.5M0.5 6H11.5" stroke="#0B7ACE" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </div>
+          <span className="text-lg font-medium text-white">
+            {FLASHBACK_BANK_WARNING_DATA.addButtonText}
+          </span>
+        </button>
+      </div>
 
       {/* Continue without link */}
       <button
