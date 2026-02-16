@@ -48,7 +48,7 @@ export function PaymentOptions() {
             }}
             className="flex h-[72px] cursor-pointer items-center gap-3 rounded-[15px] border border-[#DEE3E6] bg-white px-6 text-left transition-shadow hover:shadow-md"
           >
-            <span className="text-lg font-medium text-[#242A2F]">
+            <span className="text-lg font-medium leading-tight text-[#242A2F]">
               {option.label}
             </span>
             {option.id === "credit-24x" ? (
