@@ -52,15 +52,22 @@ export function WalletHeader({
       {/* Top row: + icon, title, user initials */}
       <div className="flex items-center justify-between">
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20"
+          className="flex h-9 w-9 items-center justify-center rounded-full"
+          style={{ background: "linear-gradient(163deg, #91E7E1 8.18%, #004C48 91.82%)" }}
           aria-label="Ajouter"
         >
-          <Plus className="h-5 w-5 text-white" />
+          <span className="text-[28px] font-normal leading-[27px] text-white">+</span>
         </button>
 
         <h1 className="text-lg font-bold text-white italic">Wallet</h1>
 
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#4A3B6B] text-sm font-semibold text-white">
+        <div
+          className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-medium leading-[27px] text-white"
+          style={{
+            background: "linear-gradient(163deg, #4B50D4 8.18%, #27296E 91.82%)",
+            boxShadow: "inset 0 0 0 0.5px #C2C2C2",
+          }}
+        >
           GD
         </div>
       </div>
