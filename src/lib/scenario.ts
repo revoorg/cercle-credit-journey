@@ -54,6 +54,9 @@ export const STEP_DEFINITIONS: StepDefinition[] = [
   { id: "flashback-transmission-complete", page: "wallet" },
   { id: "flashback-certified-detail", page: "wallet" },
   { id: "flashback-wallet-updated", page: "wallet" },
+
+  // End screen (credits)
+  { id: "end-screen", page: "chat" },
 ];
 
 export const STEP_SEQUENCE: ScenarioStep[] = STEP_DEFINITIONS.map((d) => d.id);

@@ -22,7 +22,8 @@ export type ChatStep =
   | "chat-add-wallet-sent"
   | "chat-add-wallet-response"
   | "chat-add-wallet-done"
-  | "flashback-title";
+  | "flashback-title"
+  | "end-screen";
 
 export type WalletStep =
   | "wallet-home"

@@ -16,6 +16,7 @@ import { WalletPrompt } from "@/components/chat/wallet-prompt";
 import { WalletConnected } from "@/components/chat/wallet-connected";
 import { ContractView } from "@/components/chat/contract-view";
 import { FlashbackTitle } from "@/components/chat/flashback-title";
+import { EndScreen } from "@/components/chat/end-screen";
 
 const WALLET_STEPS = new Set<ScenarioStep>([
   "wallet-home",
@@ -118,6 +119,11 @@ export function ChatPage() {
   // Don't render chat page if we're on a wallet step
   if (WALLET_STEPS.has(step)) {
     return null;
+  }
+
+  // --- End screen: fullscreen credits ---
+  if (step === "end-screen") {
+    return <EndScreen />;
   }
 
   // --- Flashback title: fullscreen white screen ---

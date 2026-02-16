@@ -25,7 +25,7 @@ import { FlashbackTransmissionComplete } from "@/components/wallet/flashback-tra
 import { FlashbackCertifiedDetail } from "@/components/wallet/flashback-certified-detail";
 
 export function WalletPage() {
-  const { step, goTo } = useScenario();
+  const { step, goTo, advance } = useScenario();
 
   // --- Flashback fullscreen views (no wallet-home behind) ---
   if (step === "flashback-bank-consent") {
@@ -147,7 +147,10 @@ export function WalletPage() {
 
   if (step === "flashback-wallet-updated") {
     return (
-      <div className="h-dvh overflow-y-auto bg-cercle-soft-blue">
+      <div
+        className="h-dvh cursor-pointer overflow-y-auto bg-cercle-soft-blue"
+        onClick={() => advance()}
+      >
         <WalletHeader
           hideBackButton
           lastUpdate={FLASHBACK_WALLET_UPDATED_DATA.lastUpdate}
