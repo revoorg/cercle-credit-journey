@@ -288,12 +288,9 @@ export function ChatPage() {
               <PdfChip name={CHAT_DATA.contractPdfName} />
             )}
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => goTo("wallet-home")}
-                className="rounded-full bg-cercle-teal px-6 py-2.5 text-base font-medium text-white"
-              >
+              <span className="rounded-full bg-cercle-teal px-6 py-2.5 text-base font-medium text-white">
                 Wallet
-              </button>
+              </span>
             </div>
           </div>
         )}
