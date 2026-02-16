@@ -1,21 +1,22 @@
 "use client";
 
-import { ChevronRight, User, Home, Sparkles, Heart, List } from "lucide-react";
+import Image from "next/image";
+import { ChevronRight, List } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { WalletCategory } from "@/types/scenario";
 
-const COLOR_MAP: Record<WalletCategory["color"], string> = {
-  teal: "bg-cercle-teal",
-  "green-teal": "bg-cercle-green-teal",
-  purple: "bg-cercle-purple",
-  pink: "bg-cercle-pink",
+const TEXT_COLOR_MAP: Record<WalletCategory["color"], string> = {
+  teal: "text-[#278781]",
+  "green-teal": "text-[#21A2C2]",
+  purple: "text-[#683991]",
+  pink: "text-[#D1179C]",
 };
 
-const ICON_MAP: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
-  identity: User,
-  housing: Home,
-  financial: Sparkles,
-  health: Heart,
+const ICON_MAP: Record<string, string> = {
+  identity: "/images/icons/wallet-identity.svg",
+  housing: "/images/icons/wallet-housing.svg",
+  financial: "/images/icons/wallet-financial.svg",
+  health: "/images/icons/wallet-health.svg",
 };
 
 interface WalletCategoryCardProps {
@@ -29,40 +30,38 @@ export function WalletCategoryCard({
   className,
   onAction,
 }: WalletCategoryCardProps) {
-  const bannerColor = COLOR_MAP[category.color];
-  const Icon = ICON_MAP[category.id];
+  const textColor = TEXT_COLOR_MAP[category.color];
+  const iconSrc = ICON_MAP[category.id];
   const isEmpty = category.attributeCount === 0;
 
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-xl bg-white shadow-sm",
+        "rounded-[10px] border-2 border-[#D1E0EF] bg-white p-2 shadow-[0px_5px_15px_0px_rgba(0,0,0,0.1)]",
         className
       )}
     >
-      {/* Colored banner */}
+      {/* Colored banner — inset inside white card */}
       <div
-        className={cn(
-          "flex h-10 items-center justify-between px-4",
-          bannerColor
-        )}
+        className="flex h-10 items-center justify-between rounded-lg px-3"
+        style={{ background: "linear-gradient(135deg, #D6F0ED 0%, #EDF6F5 100%)" }}
       >
         <div className="flex items-center gap-2">
-          {Icon && <Icon className="h-4 w-4 text-white" />}
-          <span className="text-sm font-semibold text-white">
+          {iconSrc && (
+            <Image src={iconSrc} alt="" width={16} height={16} className="shrink-0" />
+          )}
+          <span className={cn("text-lg font-semibold", textColor)}>
             {category.title}
           </span>
         </div>
-        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/25">
-          <ChevronRight className="h-3 w-3 text-white" />
-        </div>
+        <ChevronRight className="h-4 w-4 text-[#4E7390]" />
       </div>
 
       {/* Card body */}
-      <div className="px-4 py-3">
+      <div className="px-2 py-3">
         {isEmpty ? (
           <>
-            <div className="flex items-center gap-2 text-xs text-cercle-grey-text">
+            <div className="flex items-center gap-2 text-base text-cercle-grey-text">
               <List className="h-3.5 w-3.5" />
               <span>0 attribut disponible</span>
             </div>
@@ -75,10 +74,10 @@ export function WalletCategoryCard({
           </>
         ) : (
           <>
-            <p className="text-xs text-cercle-grey-text">
+            <p className="text-base text-cercle-grey-text">
               Derni&egrave;re mise &agrave; jour : {category.lastUpdate}
             </p>
-            <div className="mt-2 flex items-center gap-2 text-xs text-cercle-grey-text">
+            <div className="mt-2 flex items-center gap-2 text-base text-cercle-grey-text">
               <List className="h-3.5 w-3.5" />
               <span>{category.attributeCount} attributs disponibles</span>
             </div>
