@@ -15,7 +15,7 @@ export function WalletConsentCard() {
       {/* Icon + text row */}
       <div className="flex items-start gap-3">
         <Bell className="mt-0.5 h-5 w-5 shrink-0 text-red-500" fill="currentColor" />
-        <p className="text-sm font-medium text-cercle-blue">
+        <p className="text-base font-medium text-cercle-blue">
           {requester} souhaite r&eacute;cup&eacute;rer {attributeCount}{" "}
           attributs certifi&eacute;s.
         </p>
@@ -25,7 +25,7 @@ export function WalletConsentCard() {
       <div className="mt-3 text-center">
         <button
           onClick={() => goTo("wallet-attribute-detail")}
-          className="text-sm font-medium text-cercle-blue underline underline-offset-2"
+          className="text-base font-medium text-cercle-blue underline underline-offset-2"
         >
           Voir le d&eacute;tail des attributs
         </button>
@@ -35,13 +35,13 @@ export function WalletConsentCard() {
       <div className="mt-4 flex gap-3">
         <Button
           variant="outline"
-          className="h-10 flex-1 rounded-full border-cercle-grey-border text-sm font-medium text-cercle-blue cursor-pointer"
+          className="h-10 flex-1 rounded-full border-cercle-grey-border text-base font-medium text-cercle-blue cursor-pointer"
           onClick={() => goTo("wallet-home")}
         >
           Refuser
         </Button>
         <Button
-          className="h-10 flex-1 rounded-full bg-cercle-teal text-sm font-medium text-white hover:bg-cercle-teal/90 cursor-pointer"
+          className="h-10 flex-1 rounded-full bg-cercle-teal text-base font-medium text-white hover:bg-cercle-teal/90 cursor-pointer"
           onClick={() => goTo("wallet-shared-confirmation")}
         >
           Accepter

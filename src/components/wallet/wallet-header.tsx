@@ -59,7 +59,7 @@ export function WalletHeader({
           <span className="text-[28px] font-normal leading-[27px] text-white">+</span>
         </button>
 
-        <h1 className="text-lg font-bold text-white italic">Wallet</h1>
+        <h1 className="text-xl font-bold text-white italic">Wallet</h1>
 
         <div
           className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-medium leading-[27px] text-white"
@@ -75,12 +75,12 @@ export function WalletHeader({
       {!compact && (
         <>
           {/* Greeting — centered */}
-          <h2 className="mt-6 text-center text-2xl font-bold text-white">
+          <h2 className="mt-6 text-center text-[28px] font-bold text-white">
             Bonjour {displayName}
           </h2>
 
           {/* Last update — centered, two lines */}
-          <p className="mt-2 text-center text-sm text-white/70">
+          <p className="mt-2 text-center text-base text-white/70">
             Derni&egrave;re mise &agrave; jour
             <br />
             {displayDate}

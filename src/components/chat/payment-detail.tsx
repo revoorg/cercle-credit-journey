@@ -51,30 +51,30 @@ export function PaymentDetail() {
         {/* Breakdown */}
         <div className="flex flex-col gap-2 px-5 pb-4 pt-4">
           <div className="flex items-center justify-between">
-            <span className="text-base text-[#242A2F]">Mensualité</span>
-            <span className="text-base font-medium text-[#242A2F]">
+            <span className="text-lg text-[#242A2F]">Mensualité</span>
+            <span className="text-lg font-medium text-[#242A2F]">
               {credit.monthlyPayment}
             </span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-base text-[#242A2F]">TAEG</span>
-            <span className="text-base font-medium text-[#242A2F]">
+            <span className="text-lg text-[#242A2F]">TAEG</span>
+            <span className="text-lg font-medium text-[#242A2F]">
               {credit.taeg}
             </span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-base text-[#242A2F]">
+            <span className="text-lg text-[#242A2F]">
               Montant total du crédit
             </span>
-            <span className="text-base font-medium text-[#242A2F]">
+            <span className="text-lg font-medium text-[#242A2F]">
               {credit.totalCreditAmount}
             </span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-base text-[#242A2F]">
+            <span className="text-lg text-[#242A2F]">
               Coût total du crédit
             </span>
-            <span className="text-base font-medium text-[#242A2F]">
+            <span className="text-lg font-medium text-[#242A2F]">
               {credit.totalCreditCost}
             </span>
           </div>
@@ -104,7 +104,7 @@ export function PaymentDetail() {
                 <div className="h-2.5 w-2.5 rounded-full bg-cercle-blue" />
               )}
             </div>
-            <p className="text-sm leading-relaxed text-[#47535C]">
+            <p className="text-base leading-relaxed text-[#47535C]">
               Je souscris l&apos;assurance emprunteur pour un coût
               supplémentaire de{" "}
               <strong className="text-[#242A2F]">

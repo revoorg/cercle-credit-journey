@@ -13,24 +13,23 @@ export function WalletPrompt() {
   return (
     <div className="flex flex-col gap-4">
       {/* Intro text */}
-      <p className="text-base text-[#242A2F]">{CHAT_DATA.walletIntro}</p>
-
-      {/* MonCrédit header */}
-      <div className="flex items-center gap-2">
-        <span className="text-lg font-medium text-[#242A2F]">
-          Payer en {credit.installments}x avec
-        </span>
-        <MonCreditLogo />
-      </div>
+      <p className="text-lg text-[#242A2F]">{CHAT_DATA.walletIntro}</p>
 
       {/* Wallet card */}
       <div className="overflow-hidden rounded-xl border border-[#DEE3E6] bg-white">
         <div className="flex flex-col gap-3 p-5">
-          <h3 className="text-base font-medium text-[#242A2F]">
+          {/* MonCrédit header */}
+          <div className="flex items-center gap-2">
+            <span className="text-lg font-medium text-[#242A2F]">
+              Payer en {credit.installments}x avec
+            </span>
+            <MonCreditLogo />
+          </div>
+          <h3 className="text-lg font-medium text-[#242A2F]">
             {CHAT_DATA.walletPromptTitle}
           </h3>
 
-          <p className="text-sm leading-relaxed text-[#47535C]">
+          <p className="text-base leading-relaxed text-[#47535C]">
             {CHAT_DATA.walletPromptDescription}
           </p>
 
@@ -39,7 +38,7 @@ export function WalletPrompt() {
             {CHAT_DATA.walletPromptItems.map((item) => (
               <li
                 key={item}
-                className="flex items-center gap-2 text-sm text-[#242A2F]"
+                className="flex items-center gap-2 text-base text-[#242A2F]"
               >
                 <svg
                   width="16"

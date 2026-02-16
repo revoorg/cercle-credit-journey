@@ -97,7 +97,7 @@ function UserBubble({ children }: { children: React.ReactNode }) {
   return (
     <div className="animate-message-in flex justify-end">
       <div className="rounded-[15px] border border-[#E9ECEE] bg-[#F6F8F9] px-4 py-3">
-        <p className="text-base leading-relaxed text-[#242A2F]">{children}</p>
+        <p className="text-lg leading-relaxed text-[#242A2F]">{children}</p>
       </div>
     </div>
   );
@@ -231,7 +231,7 @@ export function ChatPage() {
 
         {/* TAEG response (bot text with bullet list) */}
         {blocks.includes("taeg-response") && (
-          <div className="animate-message-in text-base leading-relaxed text-[#242A2F]">
+          <div className="animate-message-in text-lg leading-relaxed text-[#242A2F]">
             <p className="whitespace-pre-line">{CHAT_DATA.taegResponse}</p>
             <ul className="my-2 list-disc space-y-1 pl-5">
               {CHAT_DATA.taegBullets.map((bullet) => (
@@ -266,7 +266,7 @@ export function ChatPage() {
         {/* Contract signed — bot message + PDF chip */}
         {blocks.includes("contract-signed") && (
           <div className="animate-message-in flex flex-col gap-3">
-            <p className="whitespace-pre-line text-base leading-relaxed text-[#242A2F]">
+            <p className="whitespace-pre-line text-lg leading-relaxed text-[#242A2F]">
               {CHAT_DATA.contractSignedMessage}
             </p>
             <PdfChip name={CHAT_DATA.contractPdfName} />
@@ -281,7 +281,7 @@ export function ChatPage() {
         {/* Add to wallet — bot response + PDF + Wallet button */}
         {blocks.includes("add-wallet-bot") && (
           <div className="animate-message-in flex flex-col gap-3">
-            <p className="text-base text-[#242A2F]">
+            <p className="text-lg text-[#242A2F]">
               {CHAT_DATA.addWalletBotMessage}
             </p>
             {!blocks.includes("add-wallet-done") && (
@@ -297,7 +297,7 @@ export function ChatPage() {
 
         {/* Add to wallet — done confirmation */}
         {blocks.includes("add-wallet-done") && (
-          <p className="animate-message-in text-base text-[#242A2F]">
+          <p className="animate-message-in text-lg text-[#242A2F]">
             {CHAT_DATA.addWalletDoneMessage}
           </p>
         )}
