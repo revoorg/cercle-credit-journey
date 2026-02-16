@@ -9,7 +9,7 @@ export function CtaButton({ className, children, ...props }: ButtonProps) {
   return (
     <Button
       className={cn(
-        "bg-[#00466B] hover:bg-[#003552] text-white rounded-xl h-12 w-full font-medium text-base",
+        "cursor-pointer bg-[#005A9E] hover:bg-[#004A84] text-white rounded-full h-[57px] w-full font-medium text-lg transition-colors",
         className
       )}
       {...props}

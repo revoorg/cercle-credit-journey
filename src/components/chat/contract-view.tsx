@@ -1,6 +1,7 @@
 "use client";
 
 import { useScenario } from "@/hooks/use-scenario";
+import { CtaButton } from "@/components/shared/cta-button";
 import { CHAT_DATA } from "@/lib/scenario-data";
 
 export function ContractView() {
@@ -167,12 +168,9 @@ export function ContractView() {
 
       {/* Sign CTA */}
       <div className="shrink-0 px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-3">
-        <button
-          onClick={() => goTo("chat-contract-signed")}
-          className="h-[57px] w-full cursor-pointer rounded-[35px] bg-[#005A9E] text-lg font-medium text-white transition-colors hover:bg-[#004A84]"
-        >
+        <CtaButton onClick={() => goTo("chat-contract-signed")}>
           Signer mon contrat
-        </button>
+        </CtaButton>
       </div>
     </div>
   );

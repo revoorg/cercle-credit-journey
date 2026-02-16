@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useScenario } from "@/hooks/use-scenario";
+import { CtaButton } from "@/components/shared/cta-button";
 import { CHAT_DATA } from "@/lib/scenario-data";
 
 export function HotelDetail() {
@@ -90,12 +91,9 @@ export function HotelDetail() {
               </span>
             </div>
           ) : (
-            <button
-              onClick={() => goTo("chat-payment-options")}
-              className="mt-5 h-[57px] w-full cursor-pointer rounded-[35px] bg-[#005A9E] text-lg font-medium text-white transition-colors hover:bg-[#004A84]"
-            >
+            <CtaButton className="mt-5" onClick={() => goTo("chat-payment-options")}>
               Choisir ce voyage
-            </button>
+            </CtaButton>
           )}
         </div>
       </div>

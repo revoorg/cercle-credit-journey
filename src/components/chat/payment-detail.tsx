@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { MonCreditLogo } from "@/components/shared/moncredit-logo";
+import { CtaButton } from "@/components/shared/cta-button";
 import { CHAT_DATA } from "@/lib/scenario-data";
 
 export function PaymentDetail() {
@@ -126,9 +127,9 @@ export function PaymentDetail() {
 
         {/* CTA */}
         <div className="px-5 pb-5">
-          <button className="h-[57px] w-full cursor-pointer rounded-[35px] bg-[#005A9E] text-lg font-medium text-white transition-colors hover:bg-[#004A84]">
+          <CtaButton>
             Choisir ce mode de paiement
-          </button>
+          </CtaButton>
         </div>
       </div>
     </div>

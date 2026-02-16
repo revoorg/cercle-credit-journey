@@ -68,7 +68,7 @@ export function WalletCategoryCard({
             </div>
             <button
               onClick={onAction}
-              className="mt-3 w-full rounded-full bg-cercle-teal py-2.5 text-sm font-medium text-white"
+              className="mt-3 mx-auto block h-10 rounded-full bg-cercle-teal px-6 text-base font-semibold text-white"
             >
               Certifier mes informations
             </button>

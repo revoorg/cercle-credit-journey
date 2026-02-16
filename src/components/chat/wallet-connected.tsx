@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useScenario } from "@/hooks/use-scenario";
 import { MonCreditLogo } from "@/components/shared/moncredit-logo";
+import { CtaButton } from "@/components/shared/cta-button";
 import { CHAT_DATA } from "@/lib/scenario-data";
 import type { ScenarioStep } from "@/types/scenario";
 
@@ -110,12 +111,9 @@ export function WalletConnected() {
                     <p className="text-base leading-relaxed text-[#47535C]">
                       {CHAT_DATA.decisionSignInvitation}
                     </p>
-                    <button
-                      onClick={() => goTo("chat-contract-view")}
-                      className="h-[57px] w-full cursor-pointer rounded-[35px] bg-[#005A9E] text-lg font-medium text-white transition-colors hover:bg-[#004A84]"
-                    >
+                    <CtaButton onClick={() => goTo("chat-contract-view")}>
                       Signer mon contrat
-                    </button>
+                    </CtaButton>
                   </>
                 )}
               </>
