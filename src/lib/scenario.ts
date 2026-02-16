@@ -29,7 +29,7 @@ export const STEP_DEFINITIONS: StepDefinition[] = [
   { id: "chat-decision-sign", page: "chat" },
   { id: "chat-contract-view", page: "chat" },
   { id: "chat-contract-signed", page: "chat", autoAdvance: { delayMs: 2000, nextStep: "chat-add-wallet-question" } },
-  { id: "chat-add-wallet-question", page: "chat", autoAdvance: { delayMs: 1500, nextStep: "chat-add-wallet-sent" } },
+  { id: "chat-add-wallet-question", page: "chat" },
   { id: "chat-add-wallet-sent", page: "chat", autoAdvance: { delayMs: 1000, nextStep: "chat-add-wallet-response" } },
   { id: "chat-add-wallet-response", page: "chat", autoAdvance: { delayMs: 2000, nextStep: "chat-add-wallet-done" } },
   { id: "chat-add-wallet-done", page: "chat" },

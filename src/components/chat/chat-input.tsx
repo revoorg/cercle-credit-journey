@@ -172,33 +172,21 @@ export function ChatInput() {
     );
   }
 
-  // Add to wallet question: show "Oui" with send button
+  // Add to wallet question: show "Oui" / "Non" choice boxes
   if (step === "chat-add-wallet-question") {
     return (
       <div className="shrink-0 bg-white px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-2">
-        <div className="flex items-center gap-3 rounded-[15px] border border-cercle-grey-border bg-cercle-grey-bg px-4 py-4">
-          <p className="flex-1 text-lg text-[#242A2F]">
-            {CHAT_DATA.addWalletUserMessage}
-          </p>
-          <MicIcon />
+        <div className="flex gap-3">
           <button
-            className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-cercle-blue text-white"
-            aria-label="Envoyer"
+            onClick={() => goTo("chat-add-wallet-sent")}
+            className="flex-1 rounded-[15px] border border-cercle-grey-border bg-cercle-grey-bg py-4 text-lg font-medium text-[#242A2F]"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
+            Oui
+          </button>
+          <button
+            className="flex-1 rounded-[15px] border border-cercle-grey-border bg-cercle-grey-bg py-4 text-lg font-medium text-[#242A2F]"
+          >
+            Non
           </button>
         </div>
       </div>
