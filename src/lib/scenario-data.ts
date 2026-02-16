@@ -83,7 +83,7 @@ export const CHAT_DATA = {
     },
   } satisfies CreditDetail,
 
-  taegQuestion: "Rappelle moi ce qu’est le TAEG ?",
+  taegQuestion: "Rappelle-moi ce qu’est le TAEG ?",
 
   taegResponse: `Le TAEG (Taux Annuel Effectif Global) est le taux qui mesure le coût total d'un crédit pour l'emprunteur, exprimé en pourcentage annuel du montant emprunté.
 
@@ -130,7 +130,7 @@ Une autre question ?`,
     "Parfait ! Votre contrat est signé.\nSouhaitez-vous l'ajouter à votre wallet ?",
   addWalletUserMessage: "Oui",
   addWalletBotMessage: "Ok, je m'en occupe",
-  addWalletDoneMessage: "C'est fait !",
+  addWalletDoneMessage: "C'est fait, bon voyage !",
 };
 
 export const WALLET_DATA = {
@@ -210,16 +210,16 @@ export const FLASHBACK_WALLET_DATA = {
       attributeCount: 8,
     },
     {
-      id: "housing",
-      title: "Mon logement",
-      color: "green-teal" as const,
+      id: "financial",
+      title: "Mes informations financières",
+      color: "purple" as const,
       lastUpdate: "",
       attributeCount: 0,
     },
     {
-      id: "financial",
-      title: "Mes informations financières",
-      color: "purple" as const,
+      id: "housing",
+      title: "Mon logement",
+      color: "green-teal" as const,
       lastUpdate: "",
       attributeCount: 0,
     },
