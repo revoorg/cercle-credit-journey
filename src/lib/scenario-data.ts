@@ -146,18 +146,18 @@ export const WALLET_DATA = {
       attributeCount: 8,
     },
     {
-      id: "housing",
-      title: "Mon logement",
-      color: "green-teal" as const,
-      lastUpdate: "29/01/2026",
-      attributeCount: 5,
-    },
-    {
       id: "financial",
       title: "Mes informations financières",
       color: "purple" as const,
       lastUpdate: "15/02/2026",
       attributeCount: 9,
+    },
+    {
+      id: "housing",
+      title: "Mon logement",
+      color: "green-teal" as const,
+      lastUpdate: "29/01/2026",
+      attributeCount: 5,
     },
     {
       id: "health",
