@@ -29,7 +29,7 @@ export function WalletHeader({
     <div
       className={cn(
         "relative flex-shrink-0 px-6",
-        compact ? "pt-4 pb-10" : "pt-10 pb-10",
+        compact ? "pt-[max(16px,env(safe-area-inset-top))] pb-4" : "pt-[max(16px,env(safe-area-inset-top))] pb-6",
         className
       )}
       style={{
