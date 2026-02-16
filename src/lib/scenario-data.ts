@@ -12,7 +12,7 @@ export const CHAT_DATA = {
   botGreeting: "Bonjour Guillaume,\nComment puis-je vous aider ?",
 
   userMessage:
-    "J'aimerais faire une surprise à ma compagne pour ses 40 ans : lui offrir un roadtrip en Italie, pour un budget maximum de 3 000€.\nQu'est-ce que tu peux me proposer ?",
+    "Je souhaite offrir un voyage en Italie à ma femme, pour la saint Valentin. Durée 7 jours. Budget maximum 3000 euros. Fais-moi 3 propositions.",
 
   aiResponseIntro: "Voici ce que je peux te proposer avec tes critères :",
 
@@ -42,8 +42,8 @@ export const CHAT_DATA = {
       location: "Camogli, Portofino, Gênes",
       price: "2 900€",
       image: "/images/hotels/hotel-2.png",
-      description: "10 jours/9 nuits avec train et hébergement",
-      dates: "Du 28/03 au 02/04/2026",
+      description: "7 jours/6 nuits avec train et hébergement",
+      dates: "Du 28/03 au 03/04/2026",
     },
     {
       id: "hotel-3",
@@ -52,7 +52,7 @@ export const CHAT_DATA = {
       price: "2 990€",
       image: "/images/hotels/hotel-3.png",
       description: "7 jours/6 nuits avec train, navettes et hébergement",
-      dates: "Du 28/03 au 02/04/2026",
+      dates: "Du 28/03 au 03/04/2026",
     },
   ] satisfies Hotel[],
 
@@ -83,7 +83,7 @@ export const CHAT_DATA = {
     },
   } satisfies CreditDetail,
 
-  taegQuestion: "C'est quoi le TAEG ?",
+  taegQuestion: "Rappelle moi ce qu’est le TAEG ?",
 
   taegResponse: `Le TAEG (Taux Annuel Effectif Global) est le taux qui mesure le coût total d'un crédit pour l'emprunteur, exprimé en pourcentage annuel du montant emprunté.
 
@@ -104,9 +104,7 @@ En Europe (et donc en France), **le TAEG est obligatoire et strictement encadré
 Une autre question ?`,
 
   userConfirmMessage:
-    "Non, c'est très clair, je vais donc choisir ce mode paiement avec l'assurance.",
-
-  botOkMessage: "Ok",
+    "Non c’est très clair. Prend le voyage avec le crédit et l’assurance",
 
   walletIntro: "Ok, voici donc la prochaine étape :",
 
