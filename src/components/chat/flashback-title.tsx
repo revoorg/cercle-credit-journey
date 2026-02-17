@@ -1,56 +1,43 @@
 "use client";
 
+const ICON_HEIGHT = 125;
+const GAP = 16;
+const COUNT = 12;
+const SET_HEIGHT = COUNT * (ICON_HEIGHT + GAP);
 
 function CalendarIcon() {
   return (
     <svg
-      width="80"
-      height="80"
-      viewBox="0 0 80 80"
+      width="120"
+      height="125"
+      viewBox="0 0 120 125"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
     >
-      {/* Calendar body */}
-      <rect
-        x="8"
-        y="16"
-        width="64"
-        height="56"
-        rx="8"
-        stroke="#DFF1FF"
-        strokeWidth="3"
-        fill="none"
-      />
-      {/* Top bar */}
-      <rect x="8" y="16" width="64" height="16" rx="8" fill="#DFF1FF" />
-      {/* Hangers */}
-      <line x1="28" y1="8" x2="28" y2="22" stroke="#DFF1FF" strokeWidth="3" strokeLinecap="round" />
-      <line x1="52" y1="8" x2="52" y2="22" stroke="#DFF1FF" strokeWidth="3" strokeLinecap="round" />
-      {/* Grid dots */}
-      <circle cx="24" cy="44" r="3" fill="#DFF1FF" />
-      <circle cx="40" cy="44" r="3" fill="#DFF1FF" />
-      <circle cx="56" cy="44" r="3" fill="#DFF1FF" />
-      <circle cx="24" cy="58" r="3" fill="#DFF1FF" />
-      <circle cx="40" cy="58" r="3" fill="#DFF1FF" />
-      <circle cx="56" cy="58" r="3" fill="#DFF1FF" />
+      <path d="M108.677 14.3447H104.713V21.5114C104.713 26.2978 100.817 30.1937 96.0309 30.1937C91.2445 30.1937 87.3487 26.2978 87.3487 21.5114V14.3447H32.6407V21.5114C32.6407 26.2978 28.7448 30.1937 23.9636 30.1937C19.1772 30.1937 15.2813 26.2978 15.2813 21.5114V14.3447H11.3229C5.06773 14.3447 0 19.4125 0 25.6625V113.209C0 119.459 5.06773 124.527 11.3229 124.527H108.683C114.933 124.527 120.006 119.459 120.006 113.209L120.001 25.6625C120.001 19.4125 114.932 14.3447 108.677 14.3447ZM106.036 106.85C106.036 109.11 104.01 110.944 101.505 110.944H18.4943C15.9891 110.944 13.9631 109.116 13.9631 106.85V50.1421C13.9631 47.8765 15.9891 46.0431 18.4943 46.0431H101.51C104.015 46.0431 106.041 47.8765 106.041 50.1421L106.036 106.85Z" fill="#DFF1FF"/>
+      <path d="M23.9636 25.6621C26.25 25.6621 28.1146 23.8028 28.1146 21.5111V4.15107C28.1146 1.85933 26.2553 0 23.9636 0C21.6718 0 19.8125 1.85933 19.8125 4.15107V21.5111C19.8125 23.8028 21.6718 25.6621 23.9636 25.6621Z" fill="#DFF1FF"/>
+      <path d="M96.0358 25.6621C98.3276 25.6621 100.187 23.8028 100.187 21.5111V4.15107C100.187 1.85933 98.3276 0 96.0358 0C93.7441 0 91.8848 1.85933 91.8848 4.15107V21.5111C91.8848 23.8028 93.7493 25.6621 96.0358 25.6621Z" fill="#DFF1FF"/>
+      <path d="M21.9004 53.1152H43.8644V75.5886H21.9004V53.1152Z" fill="#DFF1FF"/>
+      <path d="M49.5469 53.1152H71.5109V75.5886H49.5469V53.1152Z" fill="#DFF1FF"/>
+      <path d="M21.9004 80.7393H43.8644V103.213H21.9004V80.7393Z" fill="#DFF1FF"/>
+      <path d="M49.5469 80.7393H71.5109V103.213H49.5469V80.7393Z" fill="#DFF1FF"/>
+      <path d="M78.2285 53.1152H100.193V75.5886H78.2285V53.1152Z" fill="#DFF1FF"/>
+      <path d="M78.2285 80.7393H100.193V103.213H78.2285V80.7393Z" fill="#DFF1FF"/>
     </svg>
   );
 }
 
 function CalendarColumn() {
-  // Generate enough icons to fill ~2x screen height (each icon ~80px + 24px gap = 104px)
-  // 16 icons ≈ 1664px which covers most screens
-  const icons = Array.from({ length: 16 }, (_, i) => (
-    <CalendarIcon key={i} />
-  ));
-
   return (
-    <div className="animate-calendar-scroll flex flex-col items-center gap-6">
-      {/* First set */}
-      {icons}
-      {/* Duplicate set for seamless loop */}
-      {icons.map((_, i) => (
-        <CalendarIcon key={`dup-${i}`} />
+    <div
+      className="animate-calendar-scroll flex flex-col"
+      style={{ "--scroll-distance": `${SET_HEIGHT}px` } as React.CSSProperties}
+    >
+      {Array.from({ length: COUNT * 2 }, (_, i) => (
+        <div key={i} className="shrink-0 pb-4">
+          <CalendarIcon />
+        </div>
       ))}
     </div>
   );

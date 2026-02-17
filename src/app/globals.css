@@ -260,12 +260,13 @@
 
 /* Calendar scroll for flashback screen */
 @keyframes calendar-scroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50%); }
+  0% { transform: translateY(calc(-1 * var(--scroll-distance))); }
+  100% { transform: translateY(0); }
 }
 
 .animate-calendar-scroll {
   animation: calendar-scroll 8s linear infinite;
+  will-change: transform;
 }
 
 .animate-recording-bar {
