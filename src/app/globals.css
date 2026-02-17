@@ -258,6 +258,16 @@
   animation: flashback-title-in 0.8s ease-out both;
 }
 
+/* Calendar scroll for flashback screen */
+@keyframes calendar-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50%); }
+}
+
+.animate-calendar-scroll {
+  animation: calendar-scroll 8s linear infinite;
+}
+
 .animate-recording-bar {
   animation-name: recording-wave;
   animation-duration: var(--wave-speed, 0.8s);
