@@ -50,7 +50,7 @@ export function WalletCategoryCard({
           {iconSrc && (
             <Image src={iconSrc} alt="" width={16} height={16} className="shrink-0" />
           )}
-          <span className={cn("text-lg font-semibold", textColor)}>
+          <span className={cn("text-[17px] font-semibold leading-tight", textColor)}>
             {category.title}
           </span>
         </div>
