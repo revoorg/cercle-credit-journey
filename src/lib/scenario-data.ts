@@ -285,7 +285,7 @@ export const FLASHBACK_BANK_REDIRECT_DATA = {
     },
   ],
   disclaimer:
-    "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à Algoan.",
+    "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à l'agrégateur.",
   buttonText: "Poursuivre vers ma banque",
 };
 
@@ -330,7 +330,7 @@ export const FLASHBACK_BANK_SELECTION_DATA = {
     { id: "credit-agricole", name: "Crédit\nAgricole", logo: "/images/banks/credit-agricole.png" },
     { id: "caisse-epargne", name: "Caisse\nd'Épargne", logo: "/images/banks/caisse-epargne.png" },
     { id: "banque-postale", name: "La Banque\nPostale", logo: "/images/banks/banque-postale.png" },
-    { id: "revolut", name: "Revolut", logo: "/images/banks/revolut.png" },
+    { id: "revolut", name: "Revolut", logo: "/images/banks/revolut.png", logoWidth: 35, logoHeight: 44 },
   ],
   banks: [
     { letter: "A", items: [

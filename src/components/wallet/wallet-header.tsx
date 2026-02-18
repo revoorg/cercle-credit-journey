@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, Plus } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useScenario } from "@/hooks/use-scenario";
 import { WALLET_DATA } from "@/lib/scenario-data";
@@ -52,17 +52,19 @@ export function WalletHeader({
       {/* Top row: + icon, title, user initials */}
       <div className="flex items-center justify-between">
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-full"
+          className="grid size-8 place-items-center rounded-full p-0"
           style={{ background: "linear-gradient(163deg, #91E7E1 8.18%, #004C48 91.82%)" }}
           aria-label="Ajouter"
         >
-          <span className="text-[28px] font-normal leading-[27px] text-white">+</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 2v10M2 7h10" stroke="white" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
         </button>
 
         <h1 className="text-xl font-bold text-white italic">Wallet</h1>
 
         <div
-          className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-medium leading-[27px] text-white"
+          className="grid size-8 place-items-center rounded-full text-xs font-medium leading-[27px] text-white"
           style={{
             background: "linear-gradient(163deg, #4B50D4 8.18%, #27296E 91.82%)",
             boxShadow: "inset 0 0 0 0.5px #C2C2C2",

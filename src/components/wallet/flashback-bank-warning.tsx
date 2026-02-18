@@ -59,7 +59,7 @@ export function FlashbackBankWarning() {
           {/* Plus icon in white circle */}
           <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M6 0.5V11.5M0.5 6H11.5" stroke="#0B7ACE" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M6 0.5V11.5M0.5 6H11.5" stroke="#278781" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
           <span className="text-lg font-medium text-white">

@@ -83,8 +83,8 @@ export function FlashbackBankSelection({ targetBankId = "caisse-epargne" }: Flas
                 <Image
                   src={bank.logo}
                   alt={bank.name}
-                  width={44}
-                  height={44}
+                  width={bank.logoWidth ?? 44}
+                  height={bank.logoHeight ?? 44}
                   className="object-contain"
                 />
               </div>
