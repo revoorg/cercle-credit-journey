@@ -368,7 +368,7 @@ export const FLASHBACK_BANK_REDIRECT_CE_DATA = {
     },
   ],
   disclaimer:
-    "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à Algoan.",
+    "En poursuivant, vous pourrez autoriser votre banque à transmettre vos informations bancaires à l'agrégateur.",
   buttonText: "Poursuivre vers ma banque",
 };
 
