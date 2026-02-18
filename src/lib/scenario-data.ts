@@ -292,7 +292,7 @@ export const FLASHBACK_BANK_REDIRECT_DATA = {
 export const FLASHBACK_BANK_ACCOUNTS_DATA = {
   title: "Accounts access\nrequest",
   subtitle:
-    "Authorise Wallet to read your accounts information.\nPermission will expire on 15 Mai 2024.",
+    "Authorise Wallet to read your accounts information.\nPermission will expire on 15 Mai 2026.",
   sectionTitle: "Accounts",
   accountName: "EUR",
   accountBalance: "€2 153,32",
