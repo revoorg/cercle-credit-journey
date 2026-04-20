@@ -12,7 +12,7 @@ export const CHAT_DATA = {
   botGreeting: "Bonjour Guillaume,\nComment puis-je vous aider ?",
 
   userMessage:
-    "Je souhaite offrir un voyage en Italie à ma femme, pour la saint Valentin. Durée 7 jours. Budget maximum 3000 euros. Fais-moi 3 propositions.",
+    "Je souhaite offrir un voyage en Italie à ma femme. Durée 7 jours. Budget maximum 3000 euros. Fais-moi 3 propositions.",
 
   aiResponseIntro: "Voici ce que je peux te proposer avec tes critères :",
 
